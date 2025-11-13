@@ -25,10 +25,10 @@ export async function POST(request: Request) {
         title: item.title,
         quantity: item.quantity,
         unit_price: item.unit_price,
-        currency_id: "USD",
+        currency_id: "ARS", // Updated currency_id to "ARS"
       })),
       payer: body.payer,
-      statement_descriptor: "FEDDELETTIER",
+      statement_descriptor: "SUPPLEMENT STORE", // Updated statement_descriptor
       external_reference: `ORDER-${Date.now()}`,
     }
 

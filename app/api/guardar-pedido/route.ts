@@ -22,7 +22,6 @@ interface PedidoData {
   metodo_entrega: string
   metodo_pago: string
   productos: string
-  total_usd: number
   total_ars: number
 }
 
@@ -84,7 +83,7 @@ export async function POST(request: Request) {
 
     console.log("[v0] Preparando datos para insertar en Google Sheets...")
 
-    // Orden: Nombre completo, Dni, Telefono, Gmail, Metodo entrega, Pago, Precio usd, Productos,
+    // Orden: Nombre completo, Dni, Telefono, Gmail, Metodo entrega, Pago, Precio ARS, Productos,
     // Fecha Retiro, Horario Retiro, Direccion, Altura, Localidad, Provincia, Codigo postal, Instrucciones de entrega
     const row = [
       data.nombre_completo,
@@ -93,7 +92,7 @@ export async function POST(request: Request) {
       data.gmail,
       data.metodo_entrega || "N/A",
       data.metodo_pago || "N/A",
-      data.total_usd?.toString() || "0",
+      data.total_ars?.toString() || "0",
       data.productos || "N/A",
       data.fecha_retiro || "N/A",
       data.horario_retiro || "N/A",
