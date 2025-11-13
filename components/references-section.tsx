@@ -71,12 +71,18 @@ export function ReferencesSection() {
             );
           }
 
-          @keyframes referencesRotate {
-            0% {
-              transform: translate(-50%, -50%) rotate(0deg);
+          @keyframes particles-float {
+            0%, 100% {
+              transform: translate(-50%, -50%) translateY(0) rotate(0deg);
             }
-            100% {
-              transform: translate(-50%, -50%) rotate(360deg);
+            25% {
+              transform: translate(-50%, -50%) translateY(-20px) rotate(90deg);
+            }
+            50% {
+              transform: translate(-50%, -50%) translateY(0) rotate(180deg);
+            }
+            75% {
+              transform: translate(-50%, -50%) translateY(20px) rotate(270deg);
             }
           }
 
@@ -164,8 +170,8 @@ export function ReferencesSection() {
         `}</style>
 
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 w-[150%] h-[150%] animate-[referencesRotate_25s_linear_infinite]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1),transparent_40%),radial-gradient(circle_at_30%_30%,rgba(52,211,153,0.08),transparent_50%),radial-gradient(circle_at_70%_70%,rgba(110,231,183,0.09),transparent_50%)] dark:bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.15),transparent_40%),radial-gradient(circle_at_30%_30%,rgba(52,211,153,0.12),transparent_50%),radial-gradient(circle_at_70%_70%,rgba(110,231,183,0.13),transparent_50%)]" />
+          <div className="absolute top-1/2 left-1/2 w-[150%] h-[150%] animate-[particles-float_20s_ease-in-out_infinite]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.12),transparent_30%),radial-gradient(circle_at_80%_70%,rgba(52,211,153,0.1),transparent_30%),radial-gradient(circle_at_50%_50%,rgba(110,231,183,0.08),transparent_40%),radial-gradient(circle_at_30%_80%,rgba(16,185,129,0.09),transparent_35%),radial-gradient(circle_at_70%_20%,rgba(52,211,153,0.11),transparent_35%)] dark:bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.18),transparent_30%),radial-gradient(circle_at_80%_70%,rgba(52,211,153,0.15),transparent_30%),radial-gradient(circle_at_50%_50%,rgba(110,231,183,0.12),transparent_40%),radial-gradient(circle_at_30%_80%,rgba(16,185,129,0.14),transparent_35%),radial-gradient(circle_at_70%_20%,rgba(52,211,153,0.16),transparent_35%)]" />
           </div>
         </div>
 

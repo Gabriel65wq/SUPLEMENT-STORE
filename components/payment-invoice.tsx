@@ -182,10 +182,10 @@ export function PaymentInvoice({
   if (paymentSuccess) {
     return (
       <div className="flex flex-col items-center justify-center h-full space-y-6 p-8">
-        <div className="rounded-full bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 p-6">
-          <CheckCircle2 className="h-16 w-16 text-blue-600 dark:text-cyan-400" />
+        <div className="rounded-full bg-gradient-to-r from-emerald-100 to-emerald-100 dark:from-emerald-900 dark:to-emerald-900 p-6 animate-bounce-subtle">
+          <CheckCircle2 className="h-16 w-16 text-emerald-600 dark:text-emerald-400" />
         </div>
-        <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-emerald-600 to-emerald-400 dark:from-emerald-500 dark:to-emerald-300 bg-clip-text text-transparent animate-fade-in">
           ¡Pago Exitoso!
         </h2>
         <p className="text-center text-muted-foreground max-w-md">
@@ -193,7 +193,7 @@ export function PaymentInvoice({
             ? "Tu pedido ha sido registrado exitosamente. Recuerda llevar el efectivo al momento del retiro."
             : "Tu pedido ha sido registrado. Completa el pago en Mercado Pago para confirmar tu compra."}
         </p>
-        <Button size="lg" onClick={() => window.location.reload()} className="blue-button shimmer-button">
+        <Button size="lg" onClick={() => window.location.reload()} className="modern-button shimmer-button">
           Volver al Inicio
         </Button>
       </div>
@@ -202,19 +202,24 @@ export function PaymentInvoice({
 
   return (
     <div className="flex flex-col h-full">
-      <div className="border-b border-blue-200 dark:border-blue-800 pb-4 mb-6">
+      <div className="border-b border-emerald-200 dark:border-emerald-800 pb-4 mb-6">
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={onBack} className="hover:bg-blue-100 dark:hover:bg-blue-900/30">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onBack}
+            className="hover:bg-emerald-100 dark:hover:bg-emerald-900/30"
+          >
             <ChevronLeft className="h-5 w-5" />
           </Button>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 dark:from-emerald-500 dark:to-emerald-300 bg-clip-text text-transparent animate-fade-in">
             Factura y Pago
           </h2>
         </div>
       </div>
 
       {errorMessage && (
-        <div className="mb-4 p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200">
+        <div className="mb-4 p-4 bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200 animate-slide-down">
           {errorMessage}
         </div>
       )}
@@ -222,8 +227,8 @@ export function PaymentInvoice({
       <div className="flex-1 overflow-y-auto">
         <div className="space-y-6 max-w-4xl mx-auto">
           {/* 1. Resumen del Pedido - Parte Superior */}
-          <div className="border border-blue-200 dark:border-blue-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg">
-            <h3 className="font-semibold text-xl border-b border-blue-200 dark:border-blue-800 pb-2 text-blue-900 dark:text-blue-100">
+          <div className="border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-shadow animate-slide-up">
+            <h3 className="font-semibold text-xl border-b border-emerald-200 dark:border-emerald-800 pb-2 text-emerald-900 dark:text-emerald-100">
               Resumen del Pedido
             </h3>
 
@@ -232,30 +237,30 @@ export function PaymentInvoice({
               {items.map((item) => (
                 <div
                   key={item.product.id}
-                  className="flex justify-between text-sm border-b border-blue-100 dark:border-blue-900/50 pb-2"
+                  className="flex justify-between text-sm border-b border-emerald-100 dark:border-emerald-900/50 pb-2"
                 >
                   <span className="flex-1 text-foreground">
                     {item.product.name} x{item.quantity}
                   </span>
-                  <span className="font-semibold text-blue-600 dark:text-cyan-400">
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                     ${((item.product.priceUSD || 0) * item.quantity).toFixed(2)} USD
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="border-t border-blue-200 dark:border-blue-800 pt-4 space-y-3 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 p-4 rounded-lg">
+            <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 space-y-3 bg-gradient-to-r from-emerald-100 to-emerald-100 dark:from-emerald-900/50 dark:to-emerald-900/50 p-4 rounded-lg">
               <div className="flex justify-between font-semibold text-lg">
-                <span className="text-blue-900 dark:text-blue-100">Total en USD:</span>
-                <span className="text-blue-600 dark:text-cyan-400">${totalUSD.toFixed(2)} USD</span>
+                <span className="text-emerald-900 dark:text-emerald-100">Total en USD:</span>
+                <span className="text-emerald-600 dark:text-emerald-400">${totalUSD.toFixed(2)} USD</span>
               </div>
               <div className="flex justify-between text-sm text-muted-foreground">
                 <span>Dólar Cripto:</span>
                 <span>${cryptoRate.toFixed(2)} ARS</span>
               </div>
-              <div className="flex justify-between font-bold text-xl border-t border-blue-300 dark:border-blue-700 pt-3">
-                <span className="text-blue-900 dark:text-blue-100">Total en ARS:</span>
-                <span className="text-blue-600 dark:text-cyan-400">
+              <div className="flex justify-between font-bold text-xl border-t border-emerald-300 dark:border-emerald-700 pt-3">
+                <span className="text-emerald-900 dark:text-emerald-100">Total en ARS:</span>
+                <span className="text-emerald-600 dark:text-emerald-400">
                   ${totalARS.toLocaleString("es-AR", { maximumFractionDigits: 0 })} ARS
                 </span>
               </div>
@@ -263,8 +268,8 @@ export function PaymentInvoice({
           </div>
 
           {/* 2. Datos del Cliente - Parte Media */}
-          <div className="border border-blue-200 dark:border-blue-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg">
-            <h3 className="font-semibold text-xl border-b border-blue-200 dark:border-blue-800 pb-2 text-blue-900 dark:text-blue-100">
+          <div className="border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-shadow animate-slide-up">
+            <h3 className="font-semibold text-xl border-b border-emerald-200 dark:border-emerald-800 pb-2 text-emerald-900 dark:text-emerald-100">
               Datos del Cliente
             </h3>
 
@@ -287,7 +292,7 @@ export function PaymentInvoice({
               </div>
             </div>
 
-            <div className="border-t border-blue-200 dark:border-blue-800 pt-4 space-y-2 text-sm">
+            <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Método de Entrega:</span>
                 <span className="font-medium text-foreground">
@@ -328,8 +333,8 @@ export function PaymentInvoice({
           </div>
 
           {/* 3. Método de Pago - Parte Inferior */}
-          <div className="border border-blue-200 dark:border-blue-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg">
-            <h3 className="font-semibold text-xl border-b border-blue-200 dark:border-blue-800 pb-2 text-blue-900 dark:text-blue-100">
+          <div className="border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-shadow animate-slide-up">
+            <h3 className="font-semibold text-xl border-b border-emerald-200 dark:border-emerald-800 pb-2 text-emerald-900 dark:text-emerald-100">
               Método de Pago
             </h3>
 
@@ -359,7 +364,7 @@ export function PaymentInvoice({
             </RadioGroup>
 
             {deliveryMethod === "cargo" && (
-              <p className="text-xs text-muted-foreground bg-muted/50 dark:bg-muted/20 p-3 rounded border border-blue-200 dark:border-blue-800">
+              <p className="text-xs text-muted-foreground bg-muted/50 dark:bg-muted/20 p-3 rounded border border-emerald-200 dark:border-emerald-800">
                 Para envíos por Vía Cargo es obligatorio pagar por transferencia.
               </p>
             )}
@@ -368,8 +373,13 @@ export function PaymentInvoice({
       </div>
 
       {/* Botón de pago */}
-      <div className="border-t border-blue-200 dark:border-blue-800 pt-4 mt-6">
-        <Button className="w-full blue-button shimmer-button" size="lg" onClick={handlePayment} disabled={isProcessing}>
+      <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 mt-6">
+        <Button
+          className="w-full modern-button shimmer-button"
+          size="lg"
+          onClick={handlePayment}
+          disabled={isProcessing}
+        >
           {isProcessing ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />
