@@ -53,36 +53,40 @@ export function ReferencesSection() {
     <>
       <section id="referencias" className="py-16 md:py-24 relative overflow-hidden">
         <style jsx>{`
+          /* Actualizando fondo para coincidir con #inicio */
           #referencias {
             background: linear-gradient(
-              135deg,
+              160deg,
               rgba(16, 185, 129, 0.03) 0%,
               rgba(52, 211, 153, 0.06) 50%,
-              rgba(16, 185, 129, 0.03) 100%
+              rgba(16, 185, 129, 0.02) 100%
             );
           }
 
           :global(.dark) #referencias {
             background: linear-gradient(
-              135deg,
+              160deg,
               rgba(16, 185, 129, 0.08) 0%,
               rgba(52, 211, 153, 0.12) 50%,
-              rgba(110, 231, 183, 0.08) 100%
+              rgba(16, 185, 129, 0.06) 100%
             );
           }
 
-          @keyframes particles-float {
+          @keyframes infoFloat {
             0%, 100% {
-              transform: translate(-50%, -50%) translateY(0) rotate(0deg);
-            }
-            25% {
-              transform: translate(-50%, -50%) translateY(-20px) rotate(90deg);
+              transform: translate(0, 0) rotate(0deg);
             }
             50% {
-              transform: translate(-50%, -50%) translateY(0) rotate(180deg);
+              transform: translate(-3%, 3%) rotate(-3deg);
             }
-            75% {
-              transform: translate(-50%, -50%) translateY(20px) rotate(270deg);
+          }
+
+          @keyframes particleFloat {
+            0%, 100% {
+              transform: translate(0, 0);
+            }
+            50% {
+              transform: translate(2%, -2%);
             }
           }
 
@@ -104,16 +108,6 @@ export function ReferencesSection() {
             100% {
               width: 100%;
               opacity: 1;
-            }
-          }
-
-          @keyframes gradientFlow {
-            0%,
-            100% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
             }
           }
 
@@ -167,11 +161,24 @@ export function ReferencesSection() {
             background-size: 300%;
             animation: gradientFlow 4s ease infinite;
           }
+          
+          @keyframes gradientFlow {
+            0%,
+            100% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+          }
         `}</style>
 
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 w-[150%] h-[150%] animate-[particles-float_20s_ease-in-out_infinite]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.12),transparent_30%),radial-gradient(circle_at_80%_70%,rgba(52,211,153,0.1),transparent_30%),radial-gradient(circle_at_50%_50%,rgba(110,231,183,0.08),transparent_40%),radial-gradient(circle_at_30%_80%,rgba(16,185,129,0.09),transparent_35%),radial-gradient(circle_at_70%_20%,rgba(52,211,153,0.11),transparent_35%)] dark:bg-[radial-gradient(circle_at_20%_30%,rgba(16,185,129,0.18),transparent_30%),radial-gradient(circle_at_80%_70%,rgba(52,211,153,0.15),transparent_30%),radial-gradient(circle_at_50%_50%,rgba(110,231,183,0.12),transparent_40%),radial-gradient(circle_at_30%_80%,rgba(16,185,129,0.14),transparent_35%),radial-gradient(circle_at_70%_20%,rgba(52,211,153,0.16),transparent_35%)]" />
+          <div className="absolute inset-0 animate-[infoFloat_18s_ease-in-out_infinite]">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(16,185,129,0.12),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(52,211,153,0.08),transparent_50%)]" />
+          </div>
+          <div className="absolute inset-0 animate-[particleFloat_15s_ease-in-out_infinite]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(16,185,129,0.18)_2px,transparent_2px),radial-gradient(circle_at_85%_80%,rgba(52,211,153,0.15)_3px,transparent_3px),radial-gradient(circle_at_45%_60%,rgba(16,185,129,0.12)_2px,transparent_2px),radial-gradient(circle_at_70%_30%,rgba(34,197,94,0.16)_2.5px,transparent_2.5px)] bg-[length:100%_100%]" />
           </div>
         </div>
 

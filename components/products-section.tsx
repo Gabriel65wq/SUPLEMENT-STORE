@@ -39,7 +39,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           background: linear-gradient(
             160deg,
             rgba(16, 185, 129, 0.03) 0%,
-            rgba(249, 115, 22, 0.05) 50%,
+            rgba(52, 211, 153, 0.06) 50%,
             rgba(16, 185, 129, 0.02) 100%
           );
         }
@@ -47,19 +47,27 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
         :global(.dark) #productos {
           background: linear-gradient(
             160deg,
-            rgba(16, 185, 129, 0.06) 0%,
-            rgba(249, 115, 22, 0.08) 50%,
-            rgba(16, 185, 129, 0.05) 100%
+            rgba(16, 185, 129, 0.08) 0%,
+            rgba(52, 211, 153, 0.12) 50%,
+            rgba(16, 185, 129, 0.06) 100%
           );
         }
 
-        @keyframes float {
-          0%,
-          100% {
+        @keyframes infoFloat {
+          0%, 100% {
             transform: translate(0, 0) rotate(0deg);
           }
           50% {
             transform: translate(-3%, 3%) rotate(-3deg);
+          }
+        }
+
+        @keyframes particleFloat {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          50% {
+            transform: translate(2%, -2%);
           }
         }
 
@@ -126,7 +134,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
 
         .animated-gradient-hr {
           height: 3px;
-          background: linear-gradient(90deg, #10b981, #f97316, #10b981);
+          background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #10b981);
           background-size: 200% auto;
           animation: gradient-shift 3s ease infinite, hr-expand 1s ease-out;
           border: none;
@@ -162,8 +170,11 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
 
       {/* Fondo animado */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute -top-[20%] -left-[10%] w-[120%] h-[140%] animate-[float_18s_ease-in-out_infinite]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(16,185,129,0.08),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(249,115,22,0.06),transparent_50%)]" />
+        <div className="absolute inset-0 animate-[infoFloat_18s_ease-in-out_infinite]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(16,185,129,0.12),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(52,211,153,0.08),transparent_50%)]" />
+        </div>
+        <div className="absolute inset-0 animate-[particleFloat_15s_ease-in-out_infinite]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(16,185,129,0.18)_2px,transparent_2px),radial-gradient(circle_at_85%_80%,rgba(52,211,153,0.15)_3px,transparent_3px),radial-gradient(circle_at_45%_60%,rgba(16,185,129,0.12)_2px,transparent_2px),radial-gradient(circle_at_70%_30%,rgba(34,197,94,0.16)_2.5px,transparent_2.5px)] bg-[length:100%_100%]" />
         </div>
       </div>
 
