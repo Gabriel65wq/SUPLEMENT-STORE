@@ -13,7 +13,7 @@ export type Category =
 
 export interface PriceByQuantity {
   quantity: string
-  priceUSD: number
+  priceARS: number
 }
 
 export interface Product {
@@ -26,7 +26,7 @@ export interface Product {
   benefits: string[]
   howToUse: string
   pricesByQuantity: PriceByQuantity[]
-  priceUSD?: number
+  priceARS?: number
 }
 
 export const products: Product[] = [
@@ -34,7 +34,7 @@ export const products: Product[] = [
   {
     id: "proteina1",
     name: "WHEY DOY PACK 2LB – STAR NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/whey-protein-star-nutrition-doy-pack.jpg",
     category: "Proteínas",
     description:
@@ -47,13 +47,13 @@ export const products: Product[] = [
     ],
     howToUse:
       "Consumir 1 a 2 servicios diarios: uno a la mañana y otro post entrenamiento. Puede mezclarse con agua o sumarse a comidas.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "proteina2",
     name: "WHEY PROTEIN 2LB – GOLD NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/whey-protein-gold-nutrition-2lb.jpg",
     category: "Proteínas",
     description:
@@ -65,13 +65,13 @@ export const products: Product[] = [
       "Suplemento de referencia por calidad y eficacia.",
     ],
     howToUse: "Mezclar 1 scoop en 250 ml de agua o leche descremada, antes o después de entrenar.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "proteina3",
     name: "WHEY PROTEIN PLATINUM X3KG – STAR NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/whey-protein-platinum-star-nutrition-3kg.jpg",
     category: "Proteínas",
     description:
@@ -83,13 +83,13 @@ export const products: Product[] = [
       "Presentación de 3KG con 100 servicios.",
     ],
     howToUse: "Diluir 1 scoop en 200 ml de agua o leche descremada antes o después del entrenamiento.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "proteina4",
     name: "WHEY PROTEIN X5LB – GOLD NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/whey-protein-gold-nutrition-5lb.jpg",
     category: "Proteínas",
     description:
@@ -101,15 +101,15 @@ export const products: Product[] = [
       "Presentación 2300g (65 servicios).",
     ],
     howToUse: "Mezclar 30g en agua o bebida preferida antes o después del entrenamiento.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
 
   // CATEGORÍA: CREATINAS
   {
     id: "creatina1",
     name: "CREATINA STAR NUTRITION DOY PACK 300G",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/creatina-star-nutrition-doy-pack-300g.jpg",
     category: "Creatinas",
     description:
@@ -124,25 +124,25 @@ export const products: Product[] = [
     ],
     howToUse:
       "Consumir 5g diarios en agua. Óptimo 1 hora antes o después de entrenar. No saltear tomas (funciona por acumulación).",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "creatina2",
     name: "CREATINA X300G POTE – STAR NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/creatina-star-nutrition-pote-300g.jpg",
     category: "Creatinas",
     description: "Creatina monohidrato ultramicronizada que garantiza mejor absorción y rendimiento.",
     benefits: ["Incremento de fuerza y resistencia.", "Reduce fatiga muscular.", "Recuperación más eficiente."],
     howToUse: "5g diarios mezclados con agua antes o después de entrenar.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "creatina3",
     name: "CREATINA X300G – GOLD NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/creatina-gold-nutrition-300g.jpg",
     category: "Creatinas",
     description: "Creatina diseñada para potenciar entrenamiento de alta intensidad y mejorar la energía muscular.",
@@ -153,13 +153,13 @@ export const products: Product[] = [
       "Hidratación celular óptima.",
     ],
     howToUse: "Diluir 5g en 200 ml agua/jugo. Fase de carga: 5g dos veces al día. Mantenimiento: 5g diarios.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "creatina4",
     name: "CREATINA X1KG – STAR NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/creatina-star-nutrition-1kg.jpg",
     category: "Creatinas",
     description:
@@ -172,15 +172,15 @@ export const products: Product[] = [
       "Duración: 200 servicios.",
     ],
     howToUse: "Consumir 5g diarios en agua. Funciona por acumulación.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
 
   // CATEGORÍA: GANADOR DE PESO
   {
     id: "ganador1",
     name: "MUTTANT MASS DOY PACK X1.5KG – STAR NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/mutant-mass-star-nutrition-doy-pack.jpg",
     category: "Ganador de Peso",
     description:
@@ -193,13 +193,13 @@ export const products: Product[] = [
     ],
     howToUse:
       "Colocar 250–350cc de agua o leche en un shaker. Agregar 1 medida (100g) de Mutant Mass N.O. Batir y consumir. Cuándo tomarlo: antes de la actividad física o después del entrenamiento si se comió previamente.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "ganador2",
     name: "5LB GAINER GOLD – GOLD NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/gainer-gold-nutrition-5lb.jpg",
     category: "Ganador de Peso",
     description:
@@ -212,13 +212,13 @@ export const products: Product[] = [
     ],
     howToUse:
       "Mezclar una porción con agua o leche, preferentemente después de entrenar para maximizar la recuperación y el aumento de masa muscular.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
   {
     id: "ganador3",
     name: "MUTANT MASS XXL X5KG – STAR NUTRITION",
-    subtitle: "Precio: $0 USD",
+    subtitle: "Precio: $0 ARS",
     image: "/mutant-mass-xxl-star-nutrition-5kg.jpg",
     category: "Ganador de Peso",
     description:
@@ -232,7 +232,7 @@ export const products: Product[] = [
     ],
     howToUse:
       "Mezclar una porción de 75g con agua o bebida favorita. Consumir una vez al día, preferentemente después de entrenar, para una mejor recuperación y crecimiento muscular.",
-    pricesByQuantity: [{ quantity: "1x", priceUSD: 0 }],
-    priceUSD: 0,
+    pricesByQuantity: [{ quantity: "1x", priceARS: 0 }],
+    priceARS: 0,
   },
 ]

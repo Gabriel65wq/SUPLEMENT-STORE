@@ -9,17 +9,15 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import type { CartItem } from "@/components/cart-sheet"
-import { useCryptoRate } from "@/lib/crypto-rate-context"
 
 interface CheckoutFormProps {
   items: CartItem[]
-  totalUSD: number
+  totalARS: number
   onBack: () => void
   onContinueToPayment: (data: any) => void
 }
 
-export function CheckoutForm({ items, totalUSD, onBack, onContinueToPayment }: CheckoutFormProps) {
-  const { cryptoRate, isLoading } = useCryptoRate()
+export function CheckoutForm({ items, totalARS, onBack, onContinueToPayment }: CheckoutFormProps) {
   const [deliveryMethod, setDeliveryMethod] = useState<"retiro" | "cargo">("retiro")
   const [pickupDate, setPickupDate] = useState("")
   const [pickupTime, setPickupTime] = useState("")
@@ -106,13 +104,10 @@ export function CheckoutForm({ items, totalUSD, onBack, onContinueToPayment }: C
         formData,
         pickupDate,
         pickupTime,
-        totalARS: totalUSD * cryptoRate,
-        cryptoRate,
+        totalARS,
       })
     }
   }
-
-  const totalARS = totalUSD * cryptoRate
 
   return (
     <div className="flex flex-col h-full">
@@ -136,33 +131,17 @@ export function CheckoutForm({ items, totalUSD, onBack, onContinueToPayment }: C
                     {item.product.name} x{item.quantity}
                   </span>
                   <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                    ${((item.product.priceUSD || 0) * item.quantity).toFixed(2)} USD
+                    ${((item.product.priceARS || 0) * item.quantity).toLocaleString("es-AR")} ARS
                   </span>
                 </div>
               ))}
             </div>
 
             <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 space-y-3 bg-gradient-to-r from-emerald-100 to-emerald-100 dark:from-emerald-900/50 dark:to-emerald-900/50 p-4 rounded-lg">
-              <div className="flex justify-between font-semibold text-lg">
-                <span className="text-emerald-900 dark:text-emerald-100">Total en USD:</span>
-                <span className="text-emerald-600 dark:text-emerald-400">${totalUSD.toFixed(2)} USD</span>
+              <div className="flex justify-between font-bold text-xl">
+                <span className="text-emerald-900 dark:text-emerald-100">Total:</span>
+                <span className="text-emerald-600 dark:text-emerald-400">${totalARS.toLocaleString("es-AR")} ARS</span>
               </div>
-              {isLoading ? (
-                <div className="text-sm text-muted-foreground text-center py-2">Cargando cotización...</div>
-              ) : (
-                <>
-                  <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>Dólar Cripto (criptoya.com):</span>
-                    <span>${cryptoRate.toFixed(2)} ARS</span>
-                  </div>
-                  <div className="flex justify-between font-bold text-xl border-t border-emerald-300 dark:border-emerald-700 pt-3">
-                    <span className="text-emerald-900 dark:text-emerald-100">Total en ARS:</span>
-                    <span className="text-emerald-600 dark:text-emerald-400">
-                      ${totalARS.toLocaleString("es-AR", { maximumFractionDigits: 0 })} ARS
-                    </span>
-                  </div>
-                </>
-              )}
             </div>
           </div>
 

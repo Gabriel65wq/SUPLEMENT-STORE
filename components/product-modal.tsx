@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import type { Product } from "@/lib/products-data"
-import { useCryptoRate } from "@/lib/crypto-rate-context"
 
 interface ProductModalProps {
   product: Product
@@ -16,31 +15,29 @@ interface ProductModalProps {
 }
 
 export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductModalProps) {
-  const [selectedPrice, setSelectedPrice] = useState<number>(product.pricesByQuantity[0]?.priceUSD || 0)
+  const [selectedPrice, setSelectedPrice] = useState<number>(product.pricesByQuantity[0]?.priceARS || 0)
   const [selectedQuantity, setSelectedQuantity] = useState<number>(
     Number.parseInt(product.pricesByQuantity[0]?.quantity.replace(/[^\d]/g, "") || "1"),
   )
-  const { cryptoRate, isLoading } = useCryptoRate()
 
   useEffect(() => {
     if (isOpen) {
-      setSelectedPrice(product.pricesByQuantity[0]?.priceUSD || 0)
+      setSelectedPrice(product.pricesByQuantity[0]?.priceARS || 0)
       setSelectedQuantity(Number.parseInt(product.pricesByQuantity[0]?.quantity.replace(/[^\d]/g, "") || "1"))
     }
   }, [isOpen, product])
 
-  const handlePriceSelect = (priceUSD: number, quantity: string) => {
-    setSelectedPrice(priceUSD)
+  const handlePriceSelect = (priceARS: number, quantity: string) => {
+    setSelectedPrice(priceARS)
     setSelectedQuantity(Number.parseInt(quantity.replace(/[^\d]/g, "")))
   }
 
-  const totalUSD = selectedPrice * selectedQuantity
-  const totalARS = cryptoRate ? totalUSD * cryptoRate : 0
+  const totalARS = selectedPrice * selectedQuantity
 
   const handleAddToCart = () => {
     const productWithPrice = {
       ...product,
-      priceUSD: selectedPrice,
+      priceARS: selectedPrice,
     }
     onAddToCart(productWithPrice, selectedQuantity)
     onClose()
@@ -270,15 +267,17 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
                   <button
                     key={index}
                     className={`price-button flex flex-col items-center justify-center h-auto py-3 rounded-lg cursor-pointer ${
-                      selectedPrice === priceOption.priceUSD &&
+                      selectedPrice === priceOption.priceARS &&
                       selectedQuantity === Number.parseInt(priceOption.quantity.replace(/[^\d]/g, ""))
                         ? "selected"
                         : ""
                     }`}
-                    onClick={() => handlePriceSelect(priceOption.priceUSD, priceOption.quantity)}
+                    onClick={() => handlePriceSelect(priceOption.priceARS, priceOption.quantity)}
                   >
                     <span className="price-quantity text-sm font-bold">{priceOption.quantity}</span>
-                    <span className="text-xs font-semibold text-muted-foreground">${priceOption.priceUSD} USD</span>
+                    <span className="text-xs font-semibold text-muted-foreground">
+                      ${priceOption.priceARS.toLocaleString("es-AR")} ARS
+                    </span>
                   </button>
                 ))}
               </div>
@@ -293,28 +292,12 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
                 </div>
                 <div className="flex justify-between">
                   <span>Precio unitario:</span>
-                  <span className="font-semibold">${selectedPrice.toFixed(2)} USD</span>
+                  <span className="font-semibold">${selectedPrice.toLocaleString("es-AR")} ARS</span>
                 </div>
-                <div className="flex justify-between border-t pt-3">
-                  <span className="font-semibold">Subtotal USD:</span>
-                  <span className="font-bold text-lg">${totalUSD.toFixed(2)}</span>
+                <div className="flex justify-between text-xl font-bold border-t pt-3">
+                  <span>Total:</span>
+                  <span className="total-price">${totalARS.toLocaleString("es-AR")} ARS</span>
                 </div>
-                {isLoading ? (
-                  <div className="text-sm text-muted-foreground text-center py-2">Cargando cotización...</div>
-                ) : (
-                  <>
-                    <div className="flex justify-between text-sm text-muted-foreground">
-                      <span>Dólar Cripto:</span>
-                      <span>${cryptoRate?.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-xl font-bold border-t pt-3">
-                      <span>Total ARS:</span>
-                      <span className="total-price">
-                        ${totalARS.toLocaleString("es-AR", { maximumFractionDigits: 0 })}
-                      </span>
-                    </div>
-                  </>
-                )}
               </div>
 
               <Button className="add-to-cart-button w-full mt-6" size="lg" onClick={handleAddToCart}>

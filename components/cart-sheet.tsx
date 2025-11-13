@@ -30,10 +30,9 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
     pickupDate: string
     pickupTime: string
     totalARS: number
-    cryptoRate: number
   } | null>(null)
 
-  const totalUSD = items.reduce((sum, item) => sum + (item.product.priceUSD || 0) * item.quantity, 0)
+  const totalARS = items.reduce((sum, item) => sum + (item.product.priceARS || 0) * item.quantity, 0)
 
   const handleBackToCart = () => {
     setShowCheckout(false)
@@ -49,7 +48,6 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
     pickupDate: string
     pickupTime: string
     totalARS: number
-    cryptoRate: number
   }) => {
     setPaymentData(data)
     setShowCheckout(false)
@@ -133,7 +131,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                         <h4 className="font-semibold truncate text-foreground">{item.product.name}</h4>
                         <p className="text-sm text-muted-foreground">Cantidad: {item.quantity}</p>
                         <p className="text-emerald-600 dark:text-emerald-400 font-bold mt-1">
-                          ${((item.product.priceUSD || 0) * item.quantity).toFixed(2)} USD
+                          ${((item.product.priceARS || 0) * item.quantity).toLocaleString("es-AR")} ARS
                         </p>
                       </div>
                       <div className="flex flex-col justify-between items-end">
@@ -157,7 +155,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                       <div className="flex justify-between p-4 bg-gradient-to-r from-emerald-100 to-emerald-100 dark:from-emerald-900/50 dark:to-emerald-900/50 rounded-lg border border-emerald-200/30 dark:border-emerald-500/30">
                         <span className="font-semibold text-lg">Total:</span>
                         <span className="font-bold text-xl text-emerald-600 dark:text-emerald-400">
-                          ${totalUSD.toFixed(2)} USD
+                          ${totalARS.toLocaleString("es-AR")} ARS
                         </span>
                       </div>
                     </div>
@@ -190,7 +188,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
         <DialogContent className="max-w-[1600px] w-[95vw] max-h-[95vh] overflow-y-auto bg-white dark:bg-black border-emerald-200 dark:border-emerald-800">
           <CheckoutForm
             items={items}
-            totalUSD={totalUSD}
+            totalARS={totalARS}
             onBack={handleBackToCart}
             onContinueToPayment={handleContinueToPayment}
           />
@@ -202,9 +200,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
           {paymentData && (
             <PaymentInvoice
               items={items}
-              totalUSD={totalUSD}
               totalARS={paymentData.totalARS}
-              cryptoRate={paymentData.cryptoRate}
               deliveryMethod={paymentData.deliveryMethod}
               formData={paymentData.formData}
               pickupDate={paymentData.pickupDate}

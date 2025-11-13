@@ -9,9 +9,7 @@ import type { CartItem } from "@/components/cart-sheet"
 
 interface PaymentInvoiceProps {
   items: CartItem[]
-  totalUSD: number
   totalARS: number
-  cryptoRate: number
   deliveryMethod: "retiro" | "cargo"
   formData: {
     name: string
@@ -33,9 +31,7 @@ interface PaymentInvoiceProps {
 
 export function PaymentInvoice({
   items,
-  totalUSD,
   totalARS,
-  cryptoRate,
   deliveryMethod,
   formData,
   pickupDate,
@@ -54,7 +50,7 @@ export function PaymentInvoice({
       console.log("[v0] Guardando pedido en Google Sheets...")
 
       const productosString = items
-        .map((item) => `${item.product.name} x${item.quantity} ($${item.product.priceUSD})`)
+        .map((item) => `${item.product.name} x${item.quantity} ($${item.product.priceARS})`)
         .join(", ")
 
       const pedidoData = {
@@ -64,7 +60,7 @@ export function PaymentInvoice({
         gmail: formData.email,
         metodo_entrega: deliveryMethod === "retiro" ? "Retiro en Persona" : "Vía Cargo",
         metodo_pago: paymentMethod === "efectivo" ? "Efectivo" : "Mercado Pago",
-        total_usd: totalUSD,
+        total_ars: totalARS,
         productos: productosString,
         fecha_retiro: deliveryMethod === "retiro" ? pickupDate || "" : "N/A",
         horario_retiro: deliveryMethod === "retiro" ? pickupTime || "" : "N/A",
@@ -111,7 +107,6 @@ export function PaymentInvoice({
 
       if (paymentMethod === "efectivo") {
         console.log("[v0] Processing cash payment...")
-        // Simular procesamiento
         await new Promise((resolve) => setTimeout(resolve, 1000))
         console.log("[v0] Cash payment successful")
         setPaymentSuccess(true)
@@ -148,7 +143,7 @@ export function PaymentInvoice({
           items: items.map((item) => ({
             title: item.product.name,
             quantity: item.quantity,
-            unit_price: item.product.priceUSD || 0,
+            unit_price: item.product.priceARS || 0,
           })),
           payer: {
             name: formData.name,
@@ -226,7 +221,6 @@ export function PaymentInvoice({
 
       <div className="flex-1 overflow-y-auto">
         <div className="space-y-6 max-w-4xl mx-auto">
-          {/* 1. Resumen del Pedido - Parte Superior */}
           <div className="border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-shadow animate-slide-up">
             <h3 className="font-semibold text-xl border-b border-emerald-200 dark:border-emerald-800 pb-2 text-emerald-900 dark:text-emerald-100">
               Resumen del Pedido
@@ -243,31 +237,20 @@ export function PaymentInvoice({
                     {item.product.name} x{item.quantity}
                   </span>
                   <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                    ${((item.product.priceUSD || 0) * item.quantity).toFixed(2)} USD
+                    ${((item.product.priceARS || 0) * item.quantity).toLocaleString("es-AR")} ARS
                   </span>
                 </div>
               ))}
             </div>
 
             <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 space-y-3 bg-gradient-to-r from-emerald-100 to-emerald-100 dark:from-emerald-900/50 dark:to-emerald-900/50 p-4 rounded-lg">
-              <div className="flex justify-between font-semibold text-lg">
-                <span className="text-emerald-900 dark:text-emerald-100">Total en USD:</span>
-                <span className="text-emerald-600 dark:text-emerald-400">${totalUSD.toFixed(2)} USD</span>
-              </div>
-              <div className="flex justify-between text-sm text-muted-foreground">
-                <span>Dólar Cripto:</span>
-                <span>${cryptoRate.toFixed(2)} ARS</span>
-              </div>
-              <div className="flex justify-between font-bold text-xl border-t border-emerald-300 dark:border-emerald-700 pt-3">
-                <span className="text-emerald-900 dark:text-emerald-100">Total en ARS:</span>
-                <span className="text-emerald-600 dark:text-emerald-400">
-                  ${totalARS.toLocaleString("es-AR", { maximumFractionDigits: 0 })} ARS
-                </span>
+              <div className="flex justify-between font-bold text-xl">
+                <span className="text-emerald-900 dark:text-emerald-100">Total:</span>
+                <span className="text-emerald-600 dark:text-emerald-400">${totalARS.toLocaleString("es-AR")} ARS</span>
               </div>
             </div>
           </div>
 
-          {/* 2. Datos del Cliente - Parte Media */}
           <div className="border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-shadow animate-slide-up">
             <h3 className="font-semibold text-xl border-b border-emerald-200 dark:border-emerald-800 pb-2 text-emerald-900 dark:text-emerald-100">
               Datos del Cliente
@@ -332,7 +315,6 @@ export function PaymentInvoice({
             </div>
           </div>
 
-          {/* 3. Método de Pago - Parte Inferior */}
           <div className="border border-emerald-200 dark:border-emerald-800 rounded-lg p-6 space-y-4 bg-white dark:bg-gray-800/50 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-shadow animate-slide-up">
             <h3 className="font-semibold text-xl border-b border-emerald-200 dark:border-emerald-800 pb-2 text-emerald-900 dark:text-emerald-100">
               Método de Pago
@@ -372,7 +354,6 @@ export function PaymentInvoice({
         </div>
       </div>
 
-      {/* Botón de pago */}
       <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 mt-6">
         <Button
           className="w-full modern-button shimmer-button"
@@ -386,7 +367,7 @@ export function PaymentInvoice({
               Procesando...
             </>
           ) : (
-            `Confirmar Pago - $${totalARS.toLocaleString("es-AR", { maximumFractionDigits: 0 })} ARS`
+            `Confirmar Pago - $${totalARS.toLocaleString("es-AR")} ARS`
           )}
         </Button>
       </div>

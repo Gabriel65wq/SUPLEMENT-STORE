@@ -216,7 +216,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
                   {product.name}
                 </h3>
                 <p className="text-lg font-bold text-orange-600 dark:text-orange-400">
-                  ${product.priceUSD || product.pricesByQuantity[0]?.priceUSD || 0} USD
+                  ${(product.priceARS || product.pricesByQuantity[0]?.priceARS || 0).toLocaleString("es-AR")} ARS
                 </p>
                 <Badge variant="secondary" className="text-xs bg-emerald-100 dark:bg-emerald-900/30">
                   {product.category}
