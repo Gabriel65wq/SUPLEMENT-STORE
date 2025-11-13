@@ -7,18 +7,18 @@ export function InfoSection() {
         #informacion {
           background: linear-gradient(
             160deg,
-            rgba(0, 123, 255, 0.02) 0%,
-            rgba(0, 168, 255, 0.05) 50%,
-            rgba(0, 99, 255, 0.03) 100%
+            rgba(16, 185, 129, 0.02) 0%,
+            rgba(52, 211, 153, 0.05) 50%,
+            rgba(16, 185, 129, 0.03) 100%
           );
         }
 
         :global(.dark) #informacion {
           background: linear-gradient(
             160deg,
-            rgba(61, 142, 255, 0.04) 0%,
-            rgba(0, 212, 255, 0.07) 50%,
-            rgba(61, 142, 255, 0.05) 100%
+            rgba(16, 185, 129, 0.06) 0%,
+            rgba(52, 211, 153, 0.09) 50%,
+            rgba(16, 185, 129, 0.07) 100%
           );
         }
 
@@ -54,10 +54,10 @@ export function InfoSection() {
         .animated-gradient-text {
           background: linear-gradient(
             90deg,
-            #3b82f6,
-            #06b6d4,
-            #3b82f6,
-            #06b6d4
+            #10b981,
+            #34d399,
+            #6ee7b7,
+            #10b981
           );
           background-size: 200% auto;
           -webkit-background-clip: text;
@@ -70,10 +70,10 @@ export function InfoSection() {
           height: 3px;
           background: linear-gradient(
             90deg,
-            #3b82f6,
-            #06b6d4,
-            #3b82f6,
-            #06b6d4
+            #10b981,
+            #34d399,
+            #6ee7b7,
+            #10b981
           );
           background-size: 200% auto;
           animation: gradient-shift 3s ease infinite, hr-expand 1s ease-out;
@@ -82,10 +82,9 @@ export function InfoSection() {
         }
       `}</style>
 
-      {/* Fondo animado con ::before */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute -top-[20%] -left-[10%] w-[120%] h-[140%] animate-[infoFloat_18s_ease-in-out_infinite]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(0,170,255,0.08),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(0,123,255,0.06),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(16,185,129,0.1),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(52,211,153,0.08),transparent_50%)]" />
         </div>
       </div>
 
@@ -100,7 +99,9 @@ export function InfoSection() {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Retiros y Envíos */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-accent">Retiros y Envíos de Mercadería</h3>
+            <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+              Retiros y Envíos de Mercadería
+            </h3>
             <p className="text-muted-foreground leading-relaxed">
               En nuestro sistema de venta mayorista, ofrecemos dos modalidades para que puedas recibir tu pedido de
               forma cómoda y segura: retiro en depósito o envío a través de transporte. A continuación, te detallamos
@@ -126,7 +127,7 @@ export function InfoSection() {
               <li>
                 <strong>Sin seña ni pago anticipado:</strong> El pago se realiza al momento del retiro.
               </li>
-              <li className="text-accent font-semibold">
+              <li className="text-emerald-600 dark:text-emerald-400 font-semibold">
                 Importante: No se entregan pedidos sin coordinación previa ni fuera del horario acordado.
               </li>
             </ul>

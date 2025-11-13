@@ -14,18 +14,18 @@ export function HeroSection() {
         #inicio {
           background: linear-gradient(
             160deg,
-            rgba(0, 123, 255, 0.02) 0%,
-            rgba(0, 168, 255, 0.05) 50%,
-            rgba(0, 99, 255, 0.03) 100%
+            rgba(16, 185, 129, 0.03) 0%,
+            rgba(52, 211, 153, 0.06) 50%,
+            rgba(16, 185, 129, 0.02) 100%
           );
         }
 
         :global(.dark) #inicio {
           background: linear-gradient(
             160deg,
-            rgba(61, 142, 255, 0.04) 0%,
-            rgba(0, 212, 255, 0.07) 50%,
-            rgba(61, 142, 255, 0.05) 100%
+            rgba(16, 185, 129, 0.08) 0%,
+            rgba(52, 211, 153, 0.12) 50%,
+            rgba(16, 185, 129, 0.06) 100%
           );
         }
 
@@ -59,10 +59,10 @@ export function HeroSection() {
         .animated-gradient-text {
           background: linear-gradient(
             90deg,
-            #3b82f6,
-            #06b6d4,
-            #3b82f6,
-            #06b6d4
+            #10b981,
+            #34d399,
+            #6ee7b7,
+            #10b981
           );
           background-size: 200% auto;
           -webkit-background-clip: text;
@@ -77,10 +77,10 @@ export function HeroSection() {
       {/* Fondo animado con ::before */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 animate-[infoFloat_18s_ease-in-out_infinite]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(0,170,255,0.08),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(0,123,255,0.06),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(16,185,129,0.12),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(52,211,153,0.08),transparent_50%)]" />
         </div>
         <div className="absolute inset-0 animate-[particleFloat_15s_ease-in-out_infinite]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(0,123,255,0.15)_2px,transparent_2px),radial-gradient(circle_at_85%_80%,rgba(0,212,255,0.12)_3px,transparent_3px),radial-gradient(circle_at_45%_60%,rgba(0,123,255,0.1)_2px,transparent_2px),radial-gradient(circle_at_70%_30%,rgba(0,180,255,0.13)_2.5px,transparent_2.5px)] bg-[length:100%_100%]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(16,185,129,0.18)_2px,transparent_2px),radial-gradient(circle_at_85%_80%,rgba(52,211,153,0.15)_3px,transparent_3px),radial-gradient(circle_at_45%_60%,rgba(16,185,129,0.12)_2px,transparent_2px),radial-gradient(circle_at_70%_30%,rgba(34,197,94,0.16)_2.5px,transparent_2.5px)] bg-[length:100%_100%]" />
         </div>
       </div>
 

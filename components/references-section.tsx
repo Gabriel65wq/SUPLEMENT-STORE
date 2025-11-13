@@ -56,18 +56,18 @@ export function ReferencesSection() {
           #referencias {
             background: linear-gradient(
               135deg,
-              rgba(0, 153, 255, 0.03) 0%,
-              rgba(0, 212, 255, 0.06) 50%,
-              rgba(0, 168, 255, 0.03) 100%
+              rgba(16, 185, 129, 0.03) 0%,
+              rgba(52, 211, 153, 0.06) 50%,
+              rgba(16, 185, 129, 0.03) 100%
             );
           }
 
           :global(.dark) #referencias {
             background: linear-gradient(
               135deg,
-              rgba(61, 142, 255, 0.05) 0%,
-              rgba(0, 212, 255, 0.09) 50%,
-              rgba(102, 210, 255, 0.05) 100%
+              rgba(16, 185, 129, 0.08) 0%,
+              rgba(52, 211, 153, 0.12) 50%,
+              rgba(110, 231, 183, 0.08) 100%
             );
           }
 
@@ -112,7 +112,7 @@ export function ReferencesSection() {
           }
 
           .animated-gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6, #06b6d4);
+            background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #10b981);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
@@ -122,7 +122,7 @@ export function ReferencesSection() {
 
           .animated-gradient-hr {
             height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6, #06b6d4);
+            background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #10b981);
             background-size: 200% auto;
             animation: gradient-shift 3s ease infinite, hr-expand 1s ease-out;
             border: none;
@@ -130,32 +130,31 @@ export function ReferencesSection() {
           }
 
           .ref-img {
-            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
           }
 
           :global(.dark) .ref-img {
-            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
           }
 
           .ref-img:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 35px rgba(0, 170, 255, 0.5);
+            box-shadow: 0 10px 35px rgba(16, 185, 129, 0.5);
           }
 
           :global(.dark) .ref-img:hover {
-            box-shadow: 0 8px 20px rgba(0, 170, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(52, 211, 153, 0.5);
           }
 
-          /* Botón azul para ambos themes */
           .blue-button {
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            background: linear-gradient(135deg, #10b981, #34d399);
             color: white;
             border: none;
           }
 
           .blue-button:hover {
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
           }
 
           .shimmer-button {
@@ -166,7 +165,7 @@ export function ReferencesSection() {
 
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 w-[150%] h-[150%] animate-[referencesRotate_25s_linear_infinite]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,168,255,0.08),transparent_40%),radial-gradient(circle_at_30%_30%,rgba(0,123,255,0.05),transparent_50%),radial-gradient(circle_at_70%_70%,rgba(0,212,255,0.06),transparent_50%)] dark:bg-[radial-gradient(circle_at_center,rgba(61,142,255,0.12),transparent_40%),radial-gradient(circle_at_30%_30%,rgba(0,212,255,0.08),transparent_50%),radial-gradient(circle_at_70%_70%,rgba(102,210,255,0.09),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1),transparent_40%),radial-gradient(circle_at_30%_30%,rgba(52,211,153,0.08),transparent_50%),radial-gradient(circle_at_70%_70%,rgba(110,231,183,0.09),transparent_50%)] dark:bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.15),transparent_40%),radial-gradient(circle_at_30%_30%,rgba(52,211,153,0.12),transparent_50%),radial-gradient(circle_at_70%_70%,rgba(110,231,183,0.13),transparent_50%)]" />
           </div>
         </div>
 
@@ -245,7 +244,7 @@ export function ReferencesSection() {
                     <img
                       src={image || "/placeholder.svg"}
                       alt={`Referencia ${index + 1}`}
-                      className="object-cover w-full h-full hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(0,170,255,0.5)]"
+                      className="object-cover w-full h-full hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.5)]"
                     />
                   </div>
                 ))}
@@ -271,7 +270,7 @@ export function ReferencesSection() {
           <img
             src={selectedImage || "/placeholder.svg"}
             alt="Referencia en tamaño real"
-            className="max-w-[90%] max-h-[90%] object-contain rounded-xl shadow-[0_0_20px_rgba(0,170,255,0.4)]"
+            className="max-w-[90%] max-h-[90%] object-contain rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.6)]"
             onClick={(e) => e.stopPropagation()}
           />
         </div>
