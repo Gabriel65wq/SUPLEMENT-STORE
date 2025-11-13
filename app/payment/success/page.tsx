@@ -46,11 +46,11 @@ export default function PaymentSuccessPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-4">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 space-y-6">
         <div className="flex flex-col items-center space-y-4">
-          <div className="rounded-full bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 p-6">
-            <CheckCircle2 className="h-16 w-16 text-green-600 dark:text-emerald-400" />
+          <div className="rounded-full bg-gradient-to-r from-cyan-100 to-cyan-100 dark:from-cyan-900 dark:to-cyan-900 p-6">
+            <CheckCircle2 className="h-16 w-16 text-cyan-600 dark:text-cyan-400" />
           </div>
 
-          <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-cyan-600 to-cyan-500 bg-clip-text text-transparent">
             ¡Pago Exitoso!
           </h1>
 
@@ -70,7 +70,7 @@ export default function PaymentSuccessPage() {
               {paymentInfo.status && (
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Estado:</span>
-                  <span className="font-medium text-green-600 dark:text-emerald-400">
+                  <span className="font-medium text-cyan-600 dark:text-cyan-400">
                     {paymentInfo.status === "approved" ? "Aprobado" : paymentInfo.status}
                   </span>
                 </div>

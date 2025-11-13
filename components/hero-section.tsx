@@ -117,7 +117,7 @@ export function HeroSection() {
                 <div className="flex flex-col gap-3 mt-4">
                   <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5 text-green-600" />
+                      <MessageCircle className="h-5 w-5 text-cyan-600" />
                       WhatsApp
                     </a>
                   </Button>

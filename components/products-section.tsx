@@ -123,6 +123,24 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           }
         }
 
+        @keyframes categoryGlow {
+          0%, 100% {
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.6), 0 0 30px rgba(34, 211, 238, 0.4);
+          }
+        }
+
+        @keyframes categoryPulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
         .animated-gradient-text {
           background: linear-gradient(90deg, #06b6d4, #22d3ee, #67e8f9, #06b6d4);
           background-size: 200% auto;
@@ -142,12 +160,41 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
         }
 
         .category-button {
-          transition: all 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           animation: scaleIn 0.4s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .category-button::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background: rgba(6, 182, 212, 0.3);
+          transform: translate(-50%, -50%);
+          transition: width 0.6s, height 0.6s;
+        }
+
+        .category-button:hover::before {
+          width: 300px;
+          height: 300px;
         }
 
         .category-button:hover {
-          transform: translateY(-2px) scale(1.05);
+          transform: translateY(-3px) scale(1.08);
+          box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+        }
+
+        .category-button:active {
+          transform: translateY(-1px) scale(1.02);
+        }
+
+        .category-button.active {
+          animation: categoryGlow 2s ease-in-out infinite;
         }
 
         .product-card {
@@ -186,22 +233,44 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           <hr className="animated-gradient-hr w-64" />
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((category, index) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              onClick={() => setSelectedCategory(category)}
-              className={`category-button ${
-                selectedCategory === category
-                  ? "shimmer-button modern-button"
-                  : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30"
-              }`}
-              style={{ animationDelay: `${index * 0.05}s` }}
-            >
-              {category}
-            </Button>
-          ))}
+        <div className="mb-12 space-y-3">
+          {/* Fila 1: 5 botones */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.slice(0, 5).map((category, index) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => setSelectedCategory(category)}
+                className={`category-button relative z-10 ${
+                  selectedCategory === category
+                    ? "shimmer-button modern-button active"
+                    : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:border-cyan-500 dark:hover:border-cyan-400"
+                }`}
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+
+          {/* Fila 2: 6 botones */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.slice(5).map((category, index) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => setSelectedCategory(category)}
+                className={`category-button relative z-10 ${
+                  selectedCategory === category
+                    ? "shimmer-button modern-button active"
+                    : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:border-cyan-500 dark:hover:border-cyan-400"
+                }`}
+                style={{ animationDelay: `${(index + 5) * 0.05}s` }}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
         </div>
 
         {/* Grid de productos */}

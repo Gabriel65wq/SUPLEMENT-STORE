@@ -20,7 +20,7 @@ export function Footer() {
                 className="border-gray-300 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800 bg-transparent"
               >
                 <a href="#" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4 text-green-500" />
+                  <MessageCircle className="h-4 w-4 text-cyan-500" />
                   <span className="sr-only">WhatsApp</span>
                 </a>
               </Button>

@@ -111,36 +111,36 @@ export function CheckoutForm({ items, totalARS, onBack, onContinueToPayment }: C
 
   return (
     <div className="flex flex-col h-full">
-      <div className="border-b border-emerald-200 dark:border-emerald-800 pb-4 mb-6">
-        <h2 className="text-2xl font-bold text-center bg-gradient-to-r from-emerald-600 to-emerald-400 dark:from-emerald-500 dark:to-emerald-300 bg-clip-text text-transparent animate-fade-in">
+      <div className="border-b border-cyan-200 dark:border-cyan-800 pb-4 mb-6">
+        <h2 className="text-2xl font-bold text-center bg-gradient-to-r from-cyan-600 to-cyan-400 dark:from-cyan-500 dark:to-cyan-300 bg-clip-text text-transparent animate-fade-in">
           Resumen del Pedido
         </h2>
       </div>
 
       <div className="flex-1 overflow-y-auto">
         <div className="space-y-8 max-w-4xl mx-auto">
-          <div className="space-y-6 p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-emerald-200 dark:border-emerald-800 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-shadow animate-slide-up">
-            <h3 className="font-semibold text-xl text-emerald-900 dark:text-emerald-100">Productos</h3>
+          <div className="space-y-6 p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-cyan-200 dark:border-cyan-800 shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/20 transition-shadow animate-slide-up">
+            <h3 className="font-semibold text-xl text-cyan-900 dark:text-cyan-100">Productos</h3>
             <div className="space-y-3">
               {items.map((item) => (
                 <div
                   key={item.product.id}
-                  className="flex justify-between text-sm border-b border-emerald-100 dark:border-emerald-900/50 pb-2"
+                  className="flex justify-between text-sm border-b border-cyan-100 dark:border-cyan-900/50 pb-2"
                 >
                   <span className="flex-1 text-foreground">
                     {item.product.name} x{item.quantity}
                   </span>
-                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-semibold text-cyan-600 dark:text-cyan-400">
                     ${((item.product.priceARS || 0) * item.quantity).toLocaleString("es-AR")} ARS
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 space-y-3 bg-gradient-to-r from-emerald-100 to-emerald-100 dark:from-emerald-900/50 dark:to-emerald-900/50 p-4 rounded-lg">
+            <div className="border-t border-cyan-200 dark:border-cyan-800 pt-4 space-y-3 bg-gradient-to-r from-cyan-100 to-cyan-100 dark:from-cyan-900/50 dark:to-cyan-900/50 p-4 rounded-lg">
               <div className="flex justify-between font-bold text-xl">
-                <span className="text-emerald-900 dark:text-emerald-100">Total:</span>
-                <span className="text-emerald-600 dark:text-emerald-400">${totalARS.toLocaleString("es-AR")} ARS</span>
+                <span className="text-cyan-900 dark:text-cyan-100">Total:</span>
+                <span className="text-cyan-600 dark:text-cyan-400">${totalARS.toLocaleString("es-AR")} ARS</span>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ export function CheckoutForm({ items, totalARS, onBack, onContinueToPayment }: C
           </div>
 
           <div className="space-y-3">
-            <h3 className="font-semibold text-lg text-emerald-900 dark:text-emerald-100">Información Personal</h3>
+            <h3 className="font-semibold text-lg text-cyan-900 dark:text-cyan-100">Información Personal</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Nombre Completo</Label>
@@ -210,8 +210,8 @@ export function CheckoutForm({ items, totalARS, onBack, onContinueToPayment }: C
           </div>
 
           {deliveryMethod === "cargo" && (
-            <div className="space-y-3 border-t border-emerald-200 dark:border-emerald-800 pt-4">
-              <h3 className="font-semibold text-lg text-emerald-900 dark:text-emerald-100">Datos de Domicilio</h3>
+            <div className="space-y-3 border-t border-cyan-200 dark:border-cyan-800 pt-4">
+              <h3 className="font-semibold text-lg text-cyan-900 dark:text-cyan-100">Datos de Domicilio</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="address">Dirección</Label>
@@ -281,10 +281,8 @@ export function CheckoutForm({ items, totalARS, onBack, onContinueToPayment }: C
           )}
 
           {deliveryMethod === "retiro" && (
-            <div className="space-y-3 border-t border-emerald-200 dark:border-emerald-800 pt-4">
-              <h3 className="font-semibold text-lg text-emerald-900 dark:text-emerald-100">
-                Fecha y Horario de Retiro
-              </h3>
+            <div className="space-y-3 border-t border-cyan-200 dark:border-cyan-800 pt-4">
+              <h3 className="font-semibold text-lg text-cyan-900 dark:text-cyan-100">Fecha y Horario de Retiro</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="date">Fecha de Retiro</Label>
@@ -306,10 +304,10 @@ export function CheckoutForm({ items, totalARS, onBack, onContinueToPayment }: C
         </div>
       </div>
 
-      <div className="border-t border-emerald-200 dark:border-emerald-800 pt-4 mt-6 space-y-2">
+      <div className="border-t border-cyan-200 dark:border-cyan-800 pt-4 mt-6 space-y-2">
         <Button
           variant="outline"
-          className="w-full border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 bg-transparent"
+          className="w-full border-cyan-300 dark:border-cyan-700 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 bg-transparent"
           size="lg"
           onClick={onBack}
         >

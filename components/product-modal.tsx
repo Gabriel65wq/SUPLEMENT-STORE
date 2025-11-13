@@ -89,7 +89,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
           }
 
           .modal-title {
-            background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);
+            background: linear-gradient(90deg, #06b6d4, #22d3ee, #67e8f9);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             background-clip: text;
@@ -98,7 +98,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
           }
 
           :global(.dark) .modal-title {
-            background: linear-gradient(90deg, #34d399, #6ee7b7, #10b981);
+            background: linear-gradient(90deg, #22d3ee, #67e8f9, #06b6d4);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             background-clip: text;
@@ -111,17 +111,17 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
           }
 
           .modal-section-title {
-            color: #10b981;
+            color: #06b6d4;
             animation: fadeInUp 0.7s ease;
           }
 
           .modal-divider {
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
             animation: scaleIn 0.8s ease;
           }
 
           .modal-image-container {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(249, 115, 22, 0.05));
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(249, 115, 22, 0.05));
             position: relative;
             overflow: hidden;
             animation: scaleIn 0.5s ease;
@@ -143,42 +143,42 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
           }
 
           .price-button {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(249, 115, 22, 0.05));
-            border: 2px solid rgba(16, 185, 129, 0.2);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(249, 115, 22, 0.05));
+            border: 2px solid rgba(6, 182, 212, 0.2);
             transition: all 0.3s ease;
             animation: fadeInUp 0.8s ease;
           }
 
           .price-button:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-            border-color: #10b981;
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+            border-color: #06b6d4;
           }
 
           :global(.dark) .price-button {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(249, 115, 22, 0.08));
-            border-color: rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(249, 115, 22, 0.08));
+            border-color: rgba(6, 182, 212, 0.3);
           }
 
           :global(.dark) .price-button:hover {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(249, 115, 22, 0.15));
-            border-color: #34d399;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(249, 115, 22, 0.15));
+            border-color: #22d3ee;
           }
 
           .price-button.selected {
-            border-color: #10b981;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(249, 115, 22, 0.15));
-            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+            border-color: #06b6d4;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(249, 115, 22, 0.15));
+            box-shadow: 0 5px 20px rgba(6, 182, 212, 0.4);
             transform: scale(1.05);
           }
 
           :global(.dark) .price-button.selected {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.35), rgba(249, 115, 22, 0.2));
-            border-color: #34d399;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.35), rgba(249, 115, 22, 0.2));
+            border-color: #22d3ee;
           }
 
           .price-quantity {
-            color: #10b981;
+            color: #06b6d4;
           }
 
           .total-price {
@@ -186,7 +186,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
           }
 
           .add-to-cart-button {
-            background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #10b981) !important;
+            background: linear-gradient(90deg, #06b6d4, #22d3ee, #67e8f9, #06b6d4) !important;
             background-size: 200% 100%;
             animation: gradientFlow 4s ease infinite;
             color: white !important;
@@ -196,7 +196,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
 
           .add-to-cart-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
           }
         `}</style>
 
@@ -246,7 +246,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
               <ul className="space-y-2">
                 {product.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                    <span className="text-emerald-500 font-bold">✓</span>
+                    <span className="text-cyan-500 font-bold">✓</span>
                     <span>{benefit}</span>
                   </li>
                 ))}
