@@ -38,18 +38,18 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
         #productos {
           background: linear-gradient(
             160deg,
-            rgba(16, 185, 129, 0.03) 0%,
-            rgba(52, 211, 153, 0.06) 50%,
-            rgba(16, 185, 129, 0.02) 100%
+            rgba(6, 182, 212, 0.03) 0%,
+            rgba(34, 211, 238, 0.06) 50%,
+            rgba(6, 182, 212, 0.02) 100%
           );
         }
 
         :global(.dark) #productos {
           background: linear-gradient(
             160deg,
-            rgba(16, 185, 129, 0.08) 0%,
-            rgba(52, 211, 153, 0.12) 50%,
-            rgba(16, 185, 129, 0.06) 100%
+            rgba(6, 182, 212, 0.08) 0%,
+            rgba(34, 211, 238, 0.12) 50%,
+            rgba(6, 182, 212, 0.06) 100%
           );
         }
 
@@ -124,7 +124,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
         }
 
         .animated-gradient-text {
-          background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #10b981);
+          background: linear-gradient(90deg, #06b6d4, #22d3ee, #67e8f9, #06b6d4);
           background-size: 200% auto;
           -webkit-background-clip: text;
           background-clip: text;
@@ -134,7 +134,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
 
         .animated-gradient-hr {
           height: 3px;
-          background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #10b981);
+          background: linear-gradient(90deg, #06b6d4, #22d3ee, #67e8f9, #06b6d4);
           background-size: 200% auto;
           animation: gradient-shift 3s ease infinite, hr-expand 1s ease-out;
           border: none;
@@ -171,10 +171,10 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
       {/* Fondo animado */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 animate-[infoFloat_18s_ease-in-out_infinite]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(16,185,129,0.12),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(52,211,153,0.08),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(6,182,212,0.12),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(34,211,238,0.08),transparent_50%)]" />
         </div>
         <div className="absolute inset-0 animate-[particleFloat_15s_ease-in-out_infinite]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(16,185,129,0.18)_2px,transparent_2px),radial-gradient(circle_at_85%_80%,rgba(52,211,153,0.15)_3px,transparent_3px),radial-gradient(circle_at_45%_60%,rgba(16,185,129,0.12)_2px,transparent_2px),radial-gradient(circle_at_70%_30%,rgba(34,197,94,0.16)_2.5px,transparent_2.5px)] bg-[length:100%_100%]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(6,182,212,0.18)_2px,transparent_2px),radial-gradient(circle_at_85%_80%,rgba(34,211,238,0.15)_3px,transparent_3px),radial-gradient(circle_at_45%_60%,rgba(6,182,212,0.12)_2px,transparent_2px),radial-gradient(circle_at_70%_30%,rgba(14,165,233,0.16)_2.5px,transparent_2.5px)] bg-[length:100%_100%]" />
         </div>
       </div>
 
@@ -195,7 +195,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
               className={`category-button ${
                 selectedCategory === category
                   ? "shimmer-button modern-button"
-                  : "border-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30"
+                  : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30"
               }`}
               style={{ animationDelay: `${index * 0.05}s` }}
             >
@@ -214,7 +214,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
               style={{ animationDelay: `${index * 0.08}s` }}
             >
               <CardContent className="p-0">
-                <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-emerald-50 to-orange-50 dark:from-emerald-900/20 dark:to-orange-900/20">
+                <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-cyan-50 to-orange-50 dark:from-cyan-900/20 dark:to-orange-900/20">
                   <img
                     src={product.image || "/placeholder.svg"}
                     alt={product.name}
@@ -229,7 +229,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
                 <p className="text-lg font-bold text-orange-600 dark:text-orange-400">
                   ${(product.priceARS || product.pricesByQuantity[0]?.priceARS || 0).toLocaleString("es-AR")} ARS
                 </p>
-                <Badge variant="secondary" className="text-xs bg-emerald-100 dark:bg-emerald-900/30">
+                <Badge variant="secondary" className="text-xs bg-cyan-100 dark:bg-cyan-900/30">
                   {product.category}
                 </Badge>
                 <Button

@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
           {/* Columna 1: SUPLEMENT STORE */}
           <div className="space-y-4 flex flex-col items-center md:items-start">
-            <h3 className="font-bold text-lg text-emerald-600 dark:text-emerald-400">SUPLEMENT STORE</h3>
+            <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">SUPLEMENT STORE</h3>
             <p className="text-sm leading-relaxed">
               Suplementos deportivos de calidad premium. +1000 Clientes satisfechos.
             </p>
@@ -40,25 +40,25 @@ export function Footer() {
 
           {/* Columna 2: Enlaces Rápidos */}
           <div className="space-y-4 flex flex-col items-center md:items-start">
-            <h3 className="font-bold text-lg text-emerald-600 dark:text-emerald-400">Enlaces Rápidos</h3>
+            <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">Enlaces Rápidos</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#inicio" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#inicio" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#productos" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#productos" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Productos
                 </a>
               </li>
               <li>
-                <a href="#informacion" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#informacion" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Información
                 </a>
               </li>
               <li>
-                <a href="#referencias" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#referencias" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Referencias
                 </a>
               </li>
@@ -67,25 +67,25 @@ export function Footer() {
 
           {/* Columna 3: Información */}
           <div className="space-y-4 flex flex-col items-center md:items-start">
-            <h3 className="font-bold text-lg text-emerald-600 dark:text-emerald-400">Información</h3>
+            <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">Información</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Política de Privacidad
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Términos y Condiciones
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Envíos y Devoluciones
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Preguntas Frecuentes
                 </a>
               </li>
@@ -94,7 +94,7 @@ export function Footer() {
 
           {/* Columna 4: Contacto */}
           <div className="space-y-4 flex flex-col items-center md:items-start">
-            <h3 className="font-bold text-lg text-emerald-600 dark:text-emerald-400">Contacto</h3>
+            <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">Contacto</h3>
             <div className="space-y-2 text-sm">
               <p>+54 9 11 2477 2377</p>
               <p>+54 9 11 3638 2378</p>

@@ -74,8 +74,8 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
             }
           `}</style>
 
-          <SheetHeader className="border-b-2 border-emerald-200/20 dark:border-emerald-500/20 pb-6 mb-6">
-            <SheetTitle className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 bg-clip-text text-transparent">
+          <SheetHeader className="border-b-2 border-cyan-200/20 dark:border-cyan-500/20 pb-6 mb-6">
+            <SheetTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-cyan-400 dark:from-cyan-400 dark:to-cyan-300 bg-clip-text text-transparent">
               Carrito de Compras
             </SheetTitle>
           </SheetHeader>
@@ -89,7 +89,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    className="w-full h-full text-emerald-500"
+                    className="w-full h-full text-cyan-500"
                   >
                     <path
                       strokeLinecap="round"
@@ -103,7 +103,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                 <p className="text-muted-foreground mb-8">Agrega productos para comenzar tu pedido</p>
                 <Button
                   onClick={onClose}
-                  className="bg-gradient-to-r from-emerald-600 to-emerald-400 dark:from-emerald-500 dark:to-emerald-300 text-white hover:scale-105 transition-transform"
+                  className="bg-gradient-to-r from-cyan-600 to-cyan-400 dark:from-cyan-500 dark:to-cyan-300 text-white hover:scale-105 transition-transform"
                   style={{
                     backgroundSize: "300%",
                     animation: "gradientFlow 4s ease infinite",
@@ -118,7 +118,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                   {items.map((item) => (
                     <div
                       key={item.product.id}
-                      className="grid grid-cols-[80px_1fr_auto] gap-4 p-4 bg-gradient-to-br from-emerald-50/50 to-emerald-50/30 dark:from-emerald-900/10 dark:to-emerald-900/5 border border-emerald-200/20 dark:border-emerald-500/20 rounded-xl hover:translate-x-1 hover:border-emerald-400/40 dark:hover:border-emerald-400/40 hover:shadow-lg hover:shadow-emerald-500/20 transition-all"
+                      className="grid grid-cols-[80px_1fr_auto] gap-4 p-4 bg-gradient-to-br from-cyan-50/50 to-cyan-50/30 dark:from-cyan-900/10 dark:to-cyan-900/5 border border-cyan-200/20 dark:border-cyan-500/20 rounded-xl hover:translate-x-1 hover:border-cyan-400/40 dark:hover:border-cyan-400/40 hover:shadow-lg hover:shadow-cyan-500/20 transition-all"
                     >
                       <div className="w-20 h-20 relative overflow-hidden rounded-lg bg-muted flex-shrink-0">
                         <img
@@ -130,7 +130,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                       <div className="flex flex-col justify-between min-w-0">
                         <h4 className="font-semibold truncate text-foreground">{item.product.name}</h4>
                         <p className="text-sm text-muted-foreground">Cantidad: {item.quantity}</p>
-                        <p className="text-emerald-600 dark:text-emerald-400 font-bold mt-1">
+                        <p className="text-cyan-600 dark:text-cyan-400 font-bold mt-1">
                           ${((item.product.priceARS || 0) * item.quantity).toLocaleString("es-AR")} ARS
                         </p>
                       </div>
@@ -148,19 +148,19 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                   ))}
                 </div>
 
-                <SheetFooter className="border-t-2 border-emerald-200/20 dark:border-emerald-500/20 pt-6 mt-6 space-y-4 bg-gradient-to-r from-emerald-50/50 to-emerald-50/50 dark:from-emerald-900/10 dark:to-emerald-900/10 -mx-6 px-6 -mb-6 pb-6">
+                <SheetFooter className="border-t-2 border-cyan-200/20 dark:border-cyan-500/20 pt-6 mt-6 space-y-4 bg-gradient-to-r from-cyan-50/50 to-cyan-50/50 dark:from-cyan-900/10 dark:to-cyan-900/10 -mx-6 px-6 -mb-6 pb-6">
                   <div className="w-full space-y-4">
                     <div className="space-y-2">
                       <h3 className="font-semibold text-lg">Resumen</h3>
-                      <div className="flex justify-between p-4 bg-gradient-to-r from-emerald-100 to-emerald-100 dark:from-emerald-900/50 dark:to-emerald-900/50 rounded-lg border border-emerald-200/30 dark:border-emerald-500/30">
+                      <div className="flex justify-between p-4 bg-gradient-to-r from-cyan-100 to-cyan-100 dark:from-cyan-900/50 dark:to-cyan-900/50 rounded-lg border border-cyan-200/30 dark:border-cyan-500/30">
                         <span className="font-semibold text-lg">Total:</span>
-                        <span className="font-bold text-xl text-emerald-600 dark:text-emerald-400">
+                        <span className="font-bold text-xl text-cyan-600 dark:text-cyan-400">
                           ${totalARS.toLocaleString("es-AR")} ARS
                         </span>
                       </div>
                     </div>
                     <Button
-                      className="w-full bg-gradient-to-r from-emerald-600 to-emerald-400 dark:from-emerald-500 dark:to-emerald-300 text-white hover:scale-105 transition-transform font-bold text-lg py-6"
+                      className="w-full bg-gradient-to-r from-cyan-600 to-cyan-400 dark:from-cyan-500 dark:to-cyan-300 text-white hover:scale-105 transition-transform font-bold text-lg py-6"
                       onClick={handleCheckout}
                       style={{
                         backgroundSize: "300%",
@@ -171,7 +171,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
                     </Button>
                     <Button
                       variant="outline"
-                      className="w-full border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 bg-transparent"
+                      className="w-full border-cyan-300 dark:border-cyan-700 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 bg-transparent"
                       onClick={onClearCart}
                     >
                       Vaciar Carrito
@@ -185,7 +185,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
       </Sheet>
 
       <Dialog open={showCheckout} onOpenChange={(open) => !open && setShowCheckout(false)}>
-        <DialogContent className="max-w-[1600px] w-[95vw] max-h-[95vh] overflow-y-auto bg-white dark:bg-black border-emerald-200 dark:border-emerald-800">
+        <DialogContent className="max-w-[1600px] w-[95vw] max-h-[95vh] overflow-y-auto bg-white dark:bg-black border-cyan-200 dark:border-cyan-800">
           <CheckoutForm
             items={items}
             totalARS={totalARS}
@@ -196,7 +196,7 @@ export function CartSheet({ isOpen, onClose, items, onRemoveItem, onClearCart }:
       </Dialog>
 
       <Dialog open={showPayment} onOpenChange={(open) => !open && setShowPayment(false)}>
-        <DialogContent className="max-w-[1800px] w-[98vw] max-h-[95vh] overflow-y-auto bg-white dark:bg-black border-emerald-200 dark:border-emerald-800">
+        <DialogContent className="max-w-[1800px] w-[98vw] max-h-[95vh] overflow-y-auto bg-white dark:bg-black border-cyan-200 dark:border-cyan-800">
           {paymentData && (
             <PaymentInvoice
               items={items}
