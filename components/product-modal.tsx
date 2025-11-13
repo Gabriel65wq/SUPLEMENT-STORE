@@ -48,10 +48,11 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto p-0">
+      <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto p-0 bg-gradient-to-br from-background via-background to-primary/5">
         <style jsx>{`
           @keyframes gradientFlow {
-            0%, 100% {
+            0%,
+            100% {
               background-position: 0% 50%;
             }
             50% {
@@ -68,17 +69,39 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
             }
           }
 
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes scaleIn {
+            from {
+              opacity: 0;
+              transform: scale(0.95);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+
           .modal-title {
-            background: linear-gradient(90deg, #007bff, #00a8ff, #00d4ff);
+            background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientFlow 3s ease infinite;
+            animation: gradientFlow 3s ease infinite, fadeInUp 0.5s ease;
           }
 
           :global(.dark) .modal-title {
-            background: linear-gradient(90deg, #4db8ff, #66d2ff, #2da8ff, #6dd6ff);
+            background: linear-gradient(90deg, #34d399, #6ee7b7, #10b981);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             background-clip: text;
@@ -86,21 +109,25 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
           }
 
           .modal-category {
-            color: #00a8ff;
+            color: #f97316;
+            animation: fadeInUp 0.6s ease;
           }
 
           .modal-section-title {
-            color: #00a8ff;
+            color: #10b981;
+            animation: fadeInUp 0.7s ease;
           }
 
           .modal-divider {
-            background: linear-gradient(90deg, transparent, rgba(0, 170, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+            animation: scaleIn 0.8s ease;
           }
 
           .modal-image-container {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(0, 212, 255, 0.05));
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(249, 115, 22, 0.05));
             position: relative;
             overflow: hidden;
+            animation: scaleIn 0.5s ease;
           }
 
           .modal-image-container::before {
@@ -114,65 +141,72 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
             animation: shimmer 3s infinite;
           }
 
+          .modal-content-section {
+            animation: fadeInUp 0.6s ease;
+          }
+
           .price-button {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.08), rgba(0, 212, 255, 0.05));
-            border: 2px solid rgba(0, 170, 255, 0.2);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(249, 115, 22, 0.05));
+            border: 2px solid rgba(16, 185, 129, 0.2);
             transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease;
           }
 
           .price-button:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
-            border-color: #00a8ff;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+            border-color: #10b981;
           }
 
           :global(.dark) .price-button {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 212, 255, 0.08));
-            border-color: rgba(0, 170, 255, 0.3);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(249, 115, 22, 0.08));
+            border-color: rgba(16, 185, 129, 0.3);
           }
 
           :global(.dark) .price-button:hover {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.25), rgba(0, 212, 255, 0.15));
-            border-color: #00d4ff;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(249, 115, 22, 0.15));
+            border-color: #34d399;
           }
 
           .price-button.selected {
-            border-color: #00a8ff;
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.25), rgba(0, 212, 255, 0.15));
-            box-shadow: 0 5px 20px rgba(0, 170, 255, 0.4);
+            border-color: #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(249, 115, 22, 0.15));
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
             transform: scale(1.05);
           }
 
           :global(.dark) .price-button.selected {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.35), rgba(0, 212, 255, 0.2));
-            border-color: #00d4ff;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.35), rgba(249, 115, 22, 0.2));
+            border-color: #34d399;
           }
 
           .price-quantity {
-            color: #00a8ff;
+            color: #10b981;
           }
 
           .total-price {
-            color: #00a8ff;
+            color: #f97316;
           }
 
           .add-to-cart-button {
-            background: linear-gradient(90deg, #007bff, #00a8ff, #00d4ff, #007bff) !important;
+            background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7, #10b981) !important;
+            background-size: 200% 100%;
             animation: gradientFlow 4s ease infinite;
             color: white !important;
             border: none !important;
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
           }
 
           .add-to-cart-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 170, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
           }
         `}</style>
 
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-4 top-4 h-10 w-10 z-50 bg-background/80 backdrop-blur-sm"
+          className="absolute right-4 top-4 h-10 w-10 z-50 bg-background/80 backdrop-blur-sm hover:bg-destructive/20 transition-all"
           onClick={onClose}
         >
           <X className="h-6 w-6" />
@@ -184,7 +218,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
             <img
               src={product.image || "/placeholder.svg"}
               alt={product.name}
-              className="max-w-full max-h-[550px] w-auto h-auto object-contain rounded-lg relative z-10"
+              className="max-w-full max-h-[550px] w-auto h-auto object-contain rounded-lg relative z-10 hover:scale-105 transition-transform duration-500"
             />
           </div>
 
@@ -192,7 +226,10 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
           <div className="flex flex-col gap-6 p-8">
             <div>
               <h2 className="modal-title text-3xl font-bold mb-2">{product.name}</h2>
-              <Badge variant="secondary" className="modal-category text-sm font-semibold uppercase tracking-wide">
+              <Badge
+                variant="secondary"
+                className="modal-category text-sm font-semibold uppercase tracking-wide bg-orange-100 dark:bg-orange-900/30"
+              >
                 {product.category}
               </Badge>
             </div>
@@ -200,22 +237,28 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
             <hr className="modal-divider border-none h-[2px]" />
 
             {/* Descripción */}
-            <div>
+            <div className="modal-content-section">
               <h3 className="modal-section-title font-semibold text-base uppercase tracking-wide mb-2">Descripción</h3>
               <p className="text-muted-foreground leading-relaxed">{product.description}</p>
             </div>
 
-            {/* Detalles */}
-            <div>
-              <h3 className="modal-section-title font-semibold text-base uppercase tracking-wide mb-2">Detalles</h3>
+            <div className="modal-content-section">
+              <h3 className="modal-section-title font-semibold text-base uppercase tracking-wide mb-2">
+                Detalles / Beneficios Principales
+              </h3>
               <ul className="space-y-2">
-                {product.details.map((detail, index) => (
+                {product.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                    <span className="text-[#00a8ff] font-bold">✓</span>
-                    <span>{detail}</span>
+                    <span className="text-emerald-500 font-bold">✓</span>
+                    <span>{benefit}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div className="modal-content-section">
+              <h3 className="modal-section-title font-semibold text-base uppercase tracking-wide mb-2">Modo de Uso</h3>
+              <p className="text-muted-foreground leading-relaxed bg-muted/50 p-4 rounded-lg">{product.howToUse}</p>
             </div>
 
             <div>
@@ -243,7 +286,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
 
             {/* Total */}
             <div className="border-t pt-6 mt-auto">
-              <div className="bg-muted p-6 rounded-lg space-y-3">
+              <div className="bg-muted/50 p-6 rounded-lg space-y-3 backdrop-blur-sm">
                 <div className="flex justify-between">
                   <span>Cantidad seleccionada:</span>
                   <span className="font-semibold">{selectedQuantity}x</span>

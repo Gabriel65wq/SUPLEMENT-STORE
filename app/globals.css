@@ -128,17 +128,18 @@
 }
 
 /* Agregando estilos globales para botones azules */
+/* Actualización completa de colores a verde esmeralda + naranja */
 @layer components {
-  .blue-button {
-    background: linear-gradient(135deg, #3b82f6, #06b6d4) !important;
+  .modern-button {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
     color: white !important;
     border: none !important;
     transition: all 0.3s ease;
   }
 
-  .blue-button:hover {
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-    transform: translateY(-2px);
+  .modern-button:hover {
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px) scale(1.02);
   }
 
   .shimmer-button {
