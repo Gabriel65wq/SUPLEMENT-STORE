@@ -71,22 +71,38 @@ export function Footer() {
             <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">Información</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/politica-privacidad" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link 
+                  href="/politica-privacidad" 
+                  className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors block py-1 cursor-pointer touch-manipulation"
+                  prefetch={true}
+                >
                   Política de Privacidad
                 </Link>
               </li>
               <li>
-                <Link href="/terminos-condiciones" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link 
+                  href="/terminos-condiciones" 
+                  className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors block py-1 cursor-pointer touch-manipulation"
+                  prefetch={true}
+                >
                   Términos y Condiciones
                 </Link>
               </li>
               <li>
-                <Link href="/envios-devoluciones" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link 
+                  href="/envios-devoluciones" 
+                  className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors block py-1 cursor-pointer touch-manipulation"
+                  prefetch={true}
+                >
                   Envíos y Devoluciones
                 </Link>
               </li>
               <li>
-                <Link href="/preguntas-frecuentes" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link 
+                  href="/preguntas-frecuentes" 
+                  className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors block py-1 cursor-pointer touch-manipulation"
+                  prefetch={true}
+                >
                   Preguntas Frecuentes
                 </Link>
               </li>
