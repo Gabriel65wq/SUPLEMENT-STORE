@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { X, ChevronLeft } from "lucide-react"
+import { X, ChevronLeft } from 'lucide-react'
 
 const mainReferences = ["/imagenes/referencias1.jpg", "/imagenes/referencias2.jpg", "/imagenes/referencias3.jpg"]
 
@@ -110,6 +110,26 @@ export function ReferencesSection() {
             }
           }
 
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes scaleInHover {
+            from {
+              transform: scale(0.95);
+            }
+            to {
+              transform: scale(1);
+            }
+          }
+
           .animated-gradient-text {
             background: linear-gradient(90deg, #06b6d4, #22d3ee, #67e8f9, #06b6d4);
             background-size: 200% auto;
@@ -129,21 +149,24 @@ export function ReferencesSection() {
           }
 
           .ref-img {
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.6s ease-out;
           }
 
           :global(.dark) .ref-img {
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.2);
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
           }
 
           .ref-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 35px rgba(6, 182, 212, 0.5);
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 12px 40px rgba(6, 182, 212, 0.6);
+            filter: brightness(1.1);
           }
 
           :global(.dark) .ref-img:hover {
-            box-shadow: 0 8px 20px rgba(34, 211, 238, 0.5);
+            box-shadow: 0 12px 40px rgba(34, 211, 238, 0.5);
           }
 
           .blue-button {
@@ -191,19 +214,23 @@ export function ReferencesSection() {
 
           <div className="max-w-2xl mx-auto text-center mb-12 space-y-2">
             <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-              ✅ +1000 clientes satisfechos en todo el país
+              💪 Resultados reales de nuestros atletas y clientes fitness
             </p>
             <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-              📦 Envíos diarios por transporte y retiros coordinados
+              ⚡ Suplementos de alta calidad para todos los objetivos
             </p>
             <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-              💬 Testimonios reales de WhatsApp
+              ⭐ Opiniones verificadas de compradores satisfechos
             </p>
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-6 mb-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-3 gap-4 md:gap-6 mb-8 max-w-5xl mx-auto">
             {mainReferences.map((image, index) => (
-              <div key={index} className="aspect-square relative overflow-hidden rounded-lg md:rounded-xl bg-muted">
+              <div 
+                key={index} 
+                className="aspect-square relative overflow-hidden rounded-xl bg-muted"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <img
                   src={image || "/placeholder.svg"}
                   alt={`Referencia ${index + 1}`}
@@ -220,7 +247,7 @@ export function ReferencesSection() {
             <Button
               size="lg"
               onClick={() => setShowGallery(true)}
-              className="blue-button shimmer-button relative overflow-hidden rounded-lg hover:scale-105 transition-transform px-8 py-6 text-lg font-semibold"
+              className="blue-button shimmer-button relative overflow-hidden rounded-full hover:scale-105 transition-transform px-8 py-4 text-base font-semibold bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
             >
               Ver Todas las Referencias
             </Button>

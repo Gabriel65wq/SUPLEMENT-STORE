@@ -67,6 +67,37 @@ export function HeroSection() {
           }
         }
 
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes slideExpandRight {
+          from {
+            width: 0%;
+            opacity: 0;
+          }
+          to {
+            width: 100%;
+            opacity: 1;
+          }
+        }
+
+        @keyframes glowPulse {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.2);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.5), 0 0 60px rgba(34, 211, 238, 0.3);
+          }
+        }
+
         @keyframes scaleIn {
           from {
             opacity: 0;
@@ -100,15 +131,6 @@ export function HeroSection() {
           }
         }
 
-        @keyframes glow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.2);
-          }
-          50% {
-            box-shadow: 0 0 30px rgba(34, 211, 238, 0.4), 0 0 60px rgba(34, 211, 238, 0.3);
-          }
-        }
-
         .animated-gradient-text {
           background: linear-gradient(
             90deg,
@@ -125,11 +147,15 @@ export function HeroSection() {
         }
 
         .hero-title {
-          animation: fadeInUp 1s ease-out;
+          animation: fadeInScale 1s ease-out;
         }
 
         .hero-subtitle {
           animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-decorative-bar {
+          animation: slideExpandRight 1.5s ease-out, glowPulse 3s ease-in-out infinite 1.5s;
         }
 
         .hero-description {
@@ -182,7 +208,7 @@ export function HeroSection() {
               <p className="text-xl md:text-3xl lg:text-4xl font-bold tracking-wide animated-gradient-text uppercase">
                 Suplementos Deportivos
               </p>
-              <div className="h-1 w-32 mx-auto mt-4 rounded-full bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500 animate-[gradient-shift_3s_ease_infinite]" />
+              <div className="hero-decorative-bar h-1 w-32 mx-auto mt-4 rounded-full bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500" />
             </div>
 
             <p className="hero-description text-base md:text-lg lg:text-xl text-foreground/80 dark:text-foreground/70 mb-10 leading-relaxed text-pretty max-w-3xl mx-auto px-4">
@@ -192,12 +218,12 @@ export function HeroSection() {
 
             <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
-                size="lg"
+                size="default"
                 asChild
-                className="rounded-full shimmer-button blue-button text-base md:text-lg px-8 py-6 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="rounded-full shimmer-button blue-button text-sm md:text-base px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
               >
                 <a href="#productos" className="flex items-center gap-2">
-                  <Package className="w-5 h-5" />
+                  <Package className="w-4 h-4" />
                   Ver Productos
                 </a>
               </Button>
@@ -205,9 +231,9 @@ export function HeroSection() {
               <Dialog>
                 <DialogTrigger asChild>
                   <Button
-                    size="lg"
+                    size="default"
                     variant="outline"
-                    className="rounded-full text-base md:text-lg px-8 py-6 h-auto font-semibold border-2 border-cyan-500/30 hover:border-cyan-500 bg-transparent hover:bg-cyan-500/10 transition-all duration-300 hover:scale-105"
+                    className="rounded-full text-sm md:text-base px-6 py-3 h-auto font-semibold border-2 border-cyan-500/50 hover:border-cyan-500 bg-cyan-500/5 hover:bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 transition-all duration-300 hover:scale-105"
                   >
                     Redes Sociales
                   </Button>
