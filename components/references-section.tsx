@@ -212,15 +212,15 @@ export function ReferencesSection() {
             <hr className="animated-gradient-hr w-64" />
           </div>
 
-          <div className="max-w-2xl mx-auto text-center mb-12 space-y-2">
-            <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-              💪 Resultados reales de nuestros atletas y clientes fitness
+          <div className="max-w-2xl mx-auto text-center mb-12 space-y-1">
+            <p className="text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
+              💪 Resultados reales de nuestros atletas y clientes fitness.
             </p>
-            <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-              ⚡ Suplementos de alta calidad para todos los objetivos
+            <p className="text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
+              ⚡ Suplementos de alta calidad para todos los objetivos.
             </p>
-            <p className="text-sm md:text-lg leading-relaxed text-muted-foreground">
-              ⭐ Opiniones verificadas de compradores satisfechos
+            <p className="text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
+              ⭐ Opiniones verificadas de compradores satisfechos.
             </p>
           </div>
 
@@ -228,13 +228,25 @@ export function ReferencesSection() {
             {mainReferences.map((image, index) => (
               <div 
                 key={index} 
-                className="aspect-square relative overflow-hidden rounded-xl bg-muted"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="aspect-square relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500/10 to-cyan-600/5 border-2 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-500"
+                style={{ 
+                  animationDelay: `${index * 0.15}s`,
+                  animation: 'fadeInUp 0.8s ease-out forwards'
+                }}
               >
                 <img
                   src={image || "/placeholder.svg"}
                   alt={`Referencia ${index + 1}`}
-                  className="ref-img object-cover w-full h-full cursor-pointer"
+                  className="object-cover w-full h-full cursor-pointer transition-all duration-500 hover:scale-110 hover:brightness-110"
+                  style={{
+                    boxShadow: '0 8px 30px rgba(6, 182, 212, 0.25)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 15px 50px rgba(6, 182, 212, 0.5), 0 0 30px rgba(34, 211, 238, 0.3)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 8px 30px rgba(6, 182, 212, 0.25)'
+                  }}
                   onClick={() => {
                     setShowGallery(true)
                   }}
@@ -256,34 +268,47 @@ export function ReferencesSection() {
       </section>
 
       {showGallery && (
-        <div className="fixed inset-0 bg-white dark:bg-black z-[9999] flex flex-col">
-          <div className="flex items-center justify-between p-4 md:p-6 border-b border-border flex-shrink-0">
+        <div className="fixed inset-0 z-[9999] flex flex-col" style={{background: 'linear-gradient(160deg, rgba(6, 182, 212, 0.05), rgba(20, 184, 166, 0.08))'}}>
+          <div className="absolute inset-0 bg-background/95 backdrop-blur-sm"></div>
+          
+          <div className="relative z-10 flex items-center justify-between p-4 md:p-6 border-b border-cyan-500/20 flex-shrink-0">
             <Button
               onClick={() => setShowGallery(false)}
-              className="blue-button shimmer-button hover:scale-105 transition-transform px-3 md:px-6 py-2 md:py-3 rounded-lg font-semibold flex items-center gap-2 text-sm md:text-base"
+              className="shimmer-button modern-button hover:scale-105 transition-transform px-3 md:px-6 py-2 md:py-3 rounded-lg font-semibold flex items-center gap-2 text-sm md:text-base shadow-lg"
             >
               <ChevronLeft className="h-4 w-4 md:h-5 md:w-5" />
               Volver
             </Button>
-            <h2 className="text-sm md:text-2xl font-bold text-foreground text-center flex-1 px-2">
+            <h2 className="text-sm md:text-2xl font-bold animated-gradient-text text-center flex-1 px-2">
               Galería de Referencias
             </h2>
             <div className="w-[60px] md:w-[100px]"></div>
           </div>
 
-          <div className="flex-1 overflow-y-auto overscroll-contain p-4 md:p-6">
+          <div className="relative z-10 flex-1 overflow-y-auto overscroll-contain p-4 md:p-6">
             <div className="w-full max-w-[1200px] mx-auto pb-8">
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 {allReferences.map((image, index) => (
                   <div
                     key={index}
-                    className="aspect-square relative overflow-hidden rounded-xl bg-muted cursor-pointer"
+                    className="aspect-square relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500/10 to-cyan-600/5 border-2 border-cyan-500/20 hover:border-cyan-400/40 cursor-pointer transition-all duration-500 hover:scale-105"
+                    style={{
+                      boxShadow: '0 8px 30px rgba(6, 182, 212, 0.2)',
+                      animationDelay: `${index * 0.05}s`,
+                      animation: 'fadeInUp 0.6s ease-out forwards'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 15px 50px rgba(6, 182, 212, 0.45), 0 0 30px rgba(34, 211, 238, 0.3)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '0 8px 30px rgba(6, 182, 212, 0.2)'
+                    }}
                     onClick={() => setSelectedImage(image)}
                   >
                     <img
                       src={image || "/placeholder.svg"}
                       alt={`Referencia ${index + 1}`}
-                      className="object-cover w-full h-full hover:scale-110 transition-transform duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)]"
+                      className="object-cover w-full h-full transition-all duration-500 hover:scale-110 hover:brightness-110"
                     />
                   </div>
                 ))}

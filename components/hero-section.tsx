@@ -173,6 +173,20 @@ export function HeroSection() {
         .feature-badge:nth-child(2) {
           animation: slideInRight 1.8s ease-out;
         }
+
+        .shimmer-button {
+          border: 2px solid transparent;
+          border-radius: 9999px;
+        }
+
+        .modern-button {
+          background-color: rgba(6, 182, 212, 0.5);
+          color: white;
+        }
+
+        .modern-button:hover {
+          background-color: rgba(6, 182, 212, 0.7);
+        }
       `}</style>
 
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -220,7 +234,7 @@ export function HeroSection() {
               <Button
                 size="default"
                 asChild
-                className="rounded-full shimmer-button blue-button text-sm md:text-base px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
+                className="rounded-full shimmer-button modern-button text-sm md:text-base px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
               >
                 <a href="#productos" className="flex items-center gap-2">
                   <Package className="w-4 h-4" />
@@ -232,8 +246,7 @@ export function HeroSection() {
                 <DialogTrigger asChild>
                   <Button
                     size="default"
-                    variant="outline"
-                    className="rounded-full text-sm md:text-base px-6 py-3 h-auto font-semibold border-2 border-cyan-500/50 hover:border-cyan-500 bg-cyan-500/5 hover:bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 transition-all duration-300 hover:scale-105"
+                    className="rounded-full shimmer-button modern-button text-sm md:text-base px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
                   >
                     Redes Sociales
                   </Button>
