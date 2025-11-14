@@ -232,14 +232,14 @@ export function HeroSection() {
           </div>
 
           <div className="text-center">
-            <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 text-balance">
-              <span className="animated-gradient-text uppercase whitespace-nowrap">
+            <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 text-balance">
+              <span className="animated-gradient-text uppercase">
                 Suplement Store
               </span>
             </h1>
 
             <div className="hero-subtitle mb-8">
-              <p className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold tracking-wide animated-gradient-text uppercase">
+              <p className="text-base sm:text-lg md:text-3xl lg:text-4xl font-bold tracking-wide animated-gradient-text uppercase">
                 Suplementos Deportivos
               </p>
               <div className="hero-decorative-bar h-1 w-32 mx-auto mt-4 rounded-full bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500" />

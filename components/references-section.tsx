@@ -212,7 +212,7 @@ export function ReferencesSection() {
             <hr className="animated-gradient-hr w-64" />
           </div>
 
-          <div className="max-w-2xl mx-auto text-center mb-12 space-y-1">
+          <div className="max-w-2xl mx-auto text-center mb-6 md:mb-12 space-y-1">
             <p className="text-xs sm:text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80 px-2" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
               💪 Resultados reales de nuestros atletas y clientes fitness.
             </p>
@@ -224,7 +224,7 @@ export function ReferencesSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 md:gap-6 mb-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-8 max-w-5xl mx-auto">
             {mainReferences.map((image, index) => (
               <div 
                 key={index} 

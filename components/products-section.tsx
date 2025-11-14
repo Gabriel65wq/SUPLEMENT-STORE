@@ -309,13 +309,13 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           {/* Mobile: Menú desplegable compacto */}
           <div className="md:hidden mb-6">
             <details className="group bg-gradient-to-r from-cyan-500/10 to-cyan-600/10 border-2 border-cyan-500/30 rounded-xl overflow-hidden shadow-lg">
-              <summary className="cursor-pointer px-6 py-4 font-semibold text-center text-lg bg-gradient-to-r from-cyan-500 to-cyan-600 text-white list-none flex items-center justify-between">
-                <span>{selectedCategory}</span>
-                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <summary className="cursor-pointer px-4 py-3 font-semibold text-center text-base bg-gradient-to-r from-cyan-500 to-cyan-600 text-white list-none flex items-center justify-between">
+                <span className="text-sm">{selectedCategory}</span>
+                <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
-              <div className="p-3 space-y-2 max-h-64 overflow-y-auto">
+              <div className="p-2 space-y-1.5 max-h-64 overflow-y-auto">
                 {categories.map((category) => (
                   <button
                     key={category}
@@ -324,7 +324,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
                       const details = e.currentTarget.closest('details')
                       if (details) details.removeAttribute('open')
                     }}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                    className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-300 text-sm ${
                       selectedCategory === category
                         ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold shadow-lg"
                         : "bg-background hover:bg-cyan-50 dark:hover:bg-cyan-900/30 border border-cyan-200 dark:border-cyan-800"
