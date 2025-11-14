@@ -221,18 +221,18 @@ export function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="feature-badge flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 border border-cyan-500/20 backdrop-blur-sm">
+            <div className="feature-badge flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 border border-cyan-500/20 backdrop-blur-sm sm:flex-1 sm:max-w-[200px] md:flex-initial">
               <Zap className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span className="text-sm font-medium text-cyan-700 dark:text-cyan-300">Resultados Garantizados</span>
             </div>
-            <div className="feature-badge flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 border border-cyan-500/20 backdrop-blur-sm">
+            <div className="feature-badge flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 border border-cyan-500/20 backdrop-blur-sm sm:flex-1 sm:max-w-[200px] md:flex-initial">
               <Package className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span className="text-sm font-medium text-cyan-700 dark:text-cyan-300">Envíos a Todo el País</span>
             </div>
           </div>
 
           <div className="text-center">
-            <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 text-balance">
+            <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 text-balance whitespace-nowrap">
               <span className="animated-gradient-text">
                 Suplement Store
               </span>
@@ -250,11 +250,11 @@ export function HeroSection() {
               precios competitivos y envíos a todo el país. Potencia tu rendimiento con la mejor selección del mercado.
             </p>
 
-            <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="hero-buttons flex flex-row gap-4 justify-center items-center">
               <Button
                 size="default"
                 asChild
-                className="rounded-full shimmer-button modern-button text-sm md:text-base px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
+                className="rounded-full shimmer-button modern-button text-xs sm:text-sm md:text-base px-4 sm:px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
               >
                 <a href="#productos" className="flex items-center gap-2">
                   <Package className="w-4 h-4" />
@@ -266,7 +266,7 @@ export function HeroSection() {
                 <DialogTrigger asChild>
                   <Button
                     size="default"
-                    className="rounded-full shimmer-button modern-button text-sm md:text-base px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
+                    className="rounded-full shimmer-button modern-button text-xs sm:text-sm md:text-base px-4 sm:px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
                   >
                     <Share2 className="w-4 h-4 mr-2" />
                     Redes Sociales

@@ -305,43 +305,77 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           <hr className="animated-gradient-hr w-64" />
         </div>
 
-        <div className="mb-12 space-y-3">
-          {/* Fila 1: 5 botones */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.slice(0, 5).map((category, index) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
-                className={`category-button relative z-10 ${
-                  selectedCategory === category
-                    ? "shimmer-button modern-button active"
-                    : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:border-cyan-500 dark:hover:border-cyan-400"
-                }`}
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                {category}
-              </Button>
-            ))}
+        <div className="mb-12">
+          {/* Mobile: Menú desplegable compacto */}
+          <div className="md:hidden mb-6">
+            <details className="group bg-gradient-to-r from-cyan-500/10 to-cyan-600/10 border-2 border-cyan-500/30 rounded-xl overflow-hidden shadow-lg">
+              <summary className="cursor-pointer px-6 py-4 font-semibold text-center text-lg bg-gradient-to-r from-cyan-500 to-cyan-600 text-white list-none flex items-center justify-between">
+                <span>{selectedCategory}</span>
+                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="p-3 space-y-2 max-h-64 overflow-y-auto">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={(e) => {
+                      setSelectedCategory(category)
+                      const details = e.currentTarget.closest('details')
+                      if (details) details.removeAttribute('open')
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
+                      selectedCategory === category
+                        ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold shadow-lg"
+                        : "bg-background hover:bg-cyan-50 dark:hover:bg-cyan-900/30 border border-cyan-200 dark:border-cyan-800"
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </details>
           </div>
 
-          {/* Fila 2: 6 botones */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.slice(5).map((category, index) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
-                className={`category-button relative z-10 ${
-                  selectedCategory === category
-                    ? "shimmer-button modern-button active"
-                    : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:border-cyan-500 dark:hover:border-cyan-400"
-                }`}
-                style={{ animationDelay: `${(index + 5) * 0.05}s` }}
-              >
-                {category}
-              </Button>
-            ))}
+          {/* Desktop: Botones en dos filas */}
+          <div className="hidden md:block space-y-3">
+            {/* Fila 1: 5 botones */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.slice(0, 5).map((category, index) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`category-button relative z-10 ${
+                    selectedCategory === category
+                      ? "shimmer-button modern-button active"
+                      : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:border-cyan-500 dark:hover:border-cyan-400"
+                  }`}
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+
+            {/* Fila 2: 6 botones */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.slice(5).map((category, index) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`category-button relative z-10 ${
+                    selectedCategory === category
+                      ? "shimmer-button modern-button active"
+                      : "border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:border-cyan-500 dark:hover:border-cyan-400"
+                  }`}
+                  style={{ animationDelay: `${(index + 5) * 0.05}s` }}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
 

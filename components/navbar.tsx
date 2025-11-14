@@ -88,7 +88,15 @@ export function Navbar({ cartItemsCount, onCartClick }: NavbarProps) {
           </Button>
         </div>
 
+        {/* DESKTOP: Botón Inicio visible */}
         <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-4">
+          <Button variant="ghost" size="icon" asChild className="transition-transform duration-300 hover:scale-110">
+            <a href="#inicio">
+              <Home className="h-5 w-5" />
+              <span className="sr-only">Inicio</span>
+            </a>
+          </Button>
+
           <Button
             variant="ghost"
             size="icon"

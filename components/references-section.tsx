@@ -213,13 +213,13 @@ export function ReferencesSection() {
           </div>
 
           <div className="max-w-2xl mx-auto text-center mb-12 space-y-1">
-            <p className="text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
+            <p className="text-xs sm:text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80 px-2" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
               💪 Resultados reales de nuestros atletas y clientes fitness.
             </p>
-            <p className="text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
+            <p className="text-xs sm:text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80 px-2" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
               ⚡ Suplementos de alta calidad para todos los objetivos.
             </p>
-            <p className="text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
+            <p className="text-xs sm:text-sm md:text-base leading-snug font-medium text-muted-foreground/90 dark:text-muted-foreground/80 px-2" style={{textShadow: '0 0 10px rgba(6, 182, 212, 0.15)'}}>
               ⭐ Opiniones verificadas de compradores satisfechos.
             </p>
           </div>
@@ -326,11 +326,46 @@ export function ReferencesSection() {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full w-12 h-12"
+            className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full w-12 h-12 z-50"
             onClick={() => setSelectedImage(null)}
           >
             <X className="h-8 w-8" />
           </Button>
+
+          {/* Botón anterior (mobile y desktop) */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 rounded-full w-12 h-12 md:w-16 md:h-16 z-50 bg-black/40 backdrop-blur-sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              const currentIndex = allReferences.indexOf(selectedImage)
+              const prevIndex = currentIndex > 0 ? currentIndex - 1 : allReferences.length - 1
+              setSelectedImage(allReferences[prevIndex])
+            }}
+          >
+            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </Button>
+
+          {/* Botón siguiente (mobile y desktop) */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 rounded-full w-12 h-12 md:w-16 md:h-16 z-50 bg-black/40 backdrop-blur-sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              const currentIndex = allReferences.indexOf(selectedImage)
+              const nextIndex = currentIndex < allReferences.length - 1 ? currentIndex + 1 : 0
+              setSelectedImage(allReferences[nextIndex])
+            }}
+          >
+            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Button>
+
           <img
             src={selectedImage || "/placeholder.svg"}
             alt="Referencia en tamaño real"

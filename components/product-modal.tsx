@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { X } from "lucide-react"
+import { X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
@@ -45,7 +45,7 @@ export function ProductModal({ product, isOpen, onClose, onAddToCart }: ProductM
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto p-0 bg-gradient-to-br from-background via-background to-primary/5">
+      <DialogContent className="max-w-6xl max-h-[95vh] md:max-h-[95vh] h-screen md:h-auto overflow-y-auto p-0 bg-gradient-to-br from-background via-background to-primary/5 md:rounded-lg rounded-none">
         <style jsx>{`
           @keyframes gradientFlow {
             0%,
