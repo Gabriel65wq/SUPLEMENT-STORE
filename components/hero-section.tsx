@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { MessageCircle, Instagram } from "lucide-react"
+import { MessageCircle, Instagram, Zap, Package } from 'lucide-react'
 
 export function HeroSection() {
   return (
@@ -56,6 +56,59 @@ export function HeroSection() {
           }
         }
 
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes glow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.2);
+          }
+          50% {
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.4), 0 0 60px rgba(34, 211, 238, 0.3);
+          }
+        }
+
         .animated-gradient-text {
           background: linear-gradient(
             90deg,
@@ -70,6 +123,30 @@ export function HeroSection() {
           -webkit-text-fill-color: transparent;
           animation: gradient-shift 3s ease infinite;
         }
+
+        .hero-title {
+          animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+          animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-description {
+          animation: fadeInUp 1.4s ease-out;
+        }
+
+        .hero-buttons {
+          animation: scaleIn 1.6s ease-out;
+        }
+
+        .feature-badge {
+          animation: slideInLeft 1.8s ease-out;
+        }
+
+        .feature-badge:nth-child(2) {
+          animation: slideInRight 1.8s ease-out;
+        }
       `}</style>
 
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -82,54 +159,80 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-balance animated-gradient-text">
-            Suplement Store
-          </h1>
-          <p className="text-2xl md:text-3xl font-bold mb-6 animated-gradient-text">SUPLEMENTOS DEPORTIVOS</p>
-          <p className="text-lg md:text-xl text-foreground mb-8 leading-relaxed text-pretty">
-            Suplementos deportivos de calidad premium para maximizar tus resultados. Amplia variedad de productos,
-            precios competitivos y envíos a todo el país. Potencia tu rendimiento con la mejor selección del mercado.
-          </p>
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="feature-badge flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 border border-cyan-500/20 backdrop-blur-sm">
+              <Zap className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+              <span className="text-sm font-medium text-cyan-700 dark:text-cyan-300">Resultados Garantizados</span>
+            </div>
+            <div className="feature-badge flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 border border-cyan-500/20 backdrop-blur-sm">
+              <Package className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+              <span className="text-sm font-medium text-cyan-700 dark:text-cyan-300">Envíos a Todo el País</span>
+            </div>
+          </div>
 
-          <div className="flex flex-row gap-3 justify-center items-center">
-            <Button
-              size="lg"
-              asChild
-              className="rounded-full shimmer-button blue-button text-xs sm:text-sm md:text-base px-3 py-2 h-9 sm:px-4 sm:py-2 sm:h-10 md:px-6 md:h-11"
-            >
-              <a href="#productos">Ver Productos</a>
-            </Button>
+          <div className="text-center">
+            <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 text-balance">
+              <span className="animated-gradient-text">
+                Suplement Store
+              </span>
+            </h1>
 
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  size="lg"
-                  className="rounded-full shimmer-button blue-button text-xs sm:text-sm md:text-base px-3 py-2 h-9 sm:px-4 sm:py-2 sm:h-10 md:px-6 md:h-11"
-                >
-                  Redes Sociales
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Síguenos en Redes Sociales</DialogTitle>
-                </DialogHeader>
-                <div className="flex flex-col gap-3 mt-4">
-                  <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5 text-cyan-600" />
-                      WhatsApp
-                    </a>
+            <div className="hero-subtitle mb-8">
+              <p className="text-xl md:text-3xl lg:text-4xl font-bold tracking-wide animated-gradient-text uppercase">
+                Suplementos Deportivos
+              </p>
+              <div className="h-1 w-32 mx-auto mt-4 rounded-full bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500 animate-[gradient-shift_3s_ease_infinite]" />
+            </div>
+
+            <p className="hero-description text-base md:text-lg lg:text-xl text-foreground/80 dark:text-foreground/70 mb-10 leading-relaxed text-pretty max-w-3xl mx-auto px-4">
+              Suplementos deportivos de calidad premium para maximizar tus resultados. Amplia variedad de productos,
+              precios competitivos y envíos a todo el país. Potencia tu rendimiento con la mejor selección del mercado.
+            </p>
+
+            <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                size="lg"
+                asChild
+                className="rounded-full shimmer-button blue-button text-base md:text-lg px-8 py-6 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                <a href="#productos" className="flex items-center gap-2">
+                  <Package className="w-5 h-5" />
+                  Ver Productos
+                </a>
+              </Button>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full text-base md:text-lg px-8 py-6 h-auto font-semibold border-2 border-cyan-500/30 hover:border-cyan-500 bg-transparent hover:bg-cyan-500/10 transition-all duration-300 hover:scale-105"
+                  >
+                    Redes Sociales
                   </Button>
-                  <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      <Instagram className="h-5 w-5 text-pink-600" />
-                      Instagram
-                    </a>
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Síguenos en Redes Sociales</DialogTitle>
+                  </DialogHeader>
+                  <div className="flex flex-col gap-3 mt-4">
+                    <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        <MessageCircle className="h-5 w-5 text-cyan-600" />
+                        WhatsApp
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
+                      <a href="#" target="_blank" rel="noopener noreferrer">
+                        <Instagram className="h-5 w-5 text-pink-600" />
+                        Instagram
+                      </a>
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
         </div>
       </div>
