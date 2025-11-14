@@ -1,4 +1,4 @@
-import { MessageCircle, Instagram } from "lucide-react"
+import { MessageCircle, Instagram } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 export function Footer() {
@@ -92,16 +92,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Columna 4: Contacto */}
+          {/* Columna 4: Créditos */}
           <div className="space-y-4 flex flex-col items-center md:items-start">
-            <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">Contacto</h3>
+            <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">Créditos</h3>
             <div className="space-y-2 text-sm">
-              <p>+54 9 11 2477 2377</p>
-              <p>+54 9 11 3638 2378</p>
-            </div>
-            <div className="pt-4 mt-4">
-              <p className="text-sm">Diseñada por: Gabriel Diaz</p>
-              <p className="text-sm">Tel: +54 9 11 3429 5399</p>
+              <p className="font-medium">Diseñada por: Gabriel Diaz</p>
+              <p className="text-cyan-600 dark:text-cyan-400">Tel: +54 9 11 3429 5399</p>
             </div>
           </div>
         </div>

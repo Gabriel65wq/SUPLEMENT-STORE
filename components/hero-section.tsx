@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { MessageCircle, Instagram, Zap, Package } from 'lucide-react'
+import { MessageCircle, Instagram, Zap, Package, Share2 } from 'lucide-react'
 
 export function HeroSection() {
   return (
@@ -131,6 +131,26 @@ export function HeroSection() {
           }
         }
 
+        @keyframes animate-fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes animate-slide-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .animated-gradient-text {
           background: linear-gradient(
             90deg,
@@ -248,24 +268,35 @@ export function HeroSection() {
                     size="default"
                     className="rounded-full shimmer-button modern-button text-sm md:text-base px-6 py-3 h-auto font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700"
                   >
+                    <Share2 className="w-4 h-4 mr-2" />
                     Redes Sociales
                   </Button>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className="sm:max-w-md bg-gradient-to-br from-cyan-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-cyan-900/20 border-2 border-cyan-200 dark:border-cyan-800 shadow-2xl">
                   <DialogHeader>
-                    <DialogTitle>Síguenos en Redes Sociales</DialogTitle>
+                    <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-cyan-600 to-cyan-500 dark:from-cyan-400 dark:to-cyan-300 bg-clip-text text-transparent animate-fade-in">
+                      Síguenos en Redes Sociales
+                    </DialogTitle>
                   </DialogHeader>
-                  <div className="flex flex-col gap-3 mt-4">
-                    <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
+                  <div className="flex flex-col gap-4 mt-6 animate-slide-up">
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start gap-3 h-14 border-2 border-cyan-300 dark:border-cyan-700 hover:border-cyan-500 dark:hover:border-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-xl group" 
+                      asChild
+                    >
                       <a href="#" target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="h-5 w-5 text-cyan-600" />
-                        WhatsApp
+                        <MessageCircle className="h-6 w-6 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform" />
+                        <span className="font-semibold text-base">WhatsApp</span>
                       </a>
                     </Button>
-                    <Button variant="outline" className="w-full justify-start gap-3 bg-transparent" asChild>
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start gap-3 h-14 border-2 border-pink-300 dark:border-pink-700 hover:border-pink-500 dark:hover:border-pink-500 hover:bg-pink-50 dark:hover:bg-pink-900/30 transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-xl group" 
+                      asChild
+                    >
                       <a href="#" target="_blank" rel="noopener noreferrer">
-                        <Instagram className="h-5 w-5 text-pink-600" />
-                        Instagram
+                        <Instagram className="h-6 w-6 text-pink-600 dark:text-pink-400 group-hover:scale-110 transition-transform" />
+                        <span className="font-semibold text-base">Instagram</span>
                       </a>
                     </Button>
                   </div>

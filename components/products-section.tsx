@@ -160,10 +160,11 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
         }
 
         .category-button {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
           animation: scaleIn 0.4s ease;
           position: relative;
           overflow: hidden;
+          box-shadow: 0 2px 8px rgba(6, 182, 212, 0.15);
         }
 
         .category-button::before {
@@ -174,9 +175,19 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           width: 0;
           height: 0;
           border-radius: 50%;
-          background: rgba(6, 182, 212, 0.3);
+          background: rgba(6, 182, 212, 0.25);
           transform: translate(-50%, -50%);
           transition: width 0.6s, height 0.6s;
+        }
+
+        .category-button::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          opacity: 0;
+          box-shadow: 0 0 20px rgba(6, 182, 212, 0.6), 0 0 40px rgba(34, 211, 238, 0.4);
+          transition: opacity 0.3s;
         }
 
         .category-button:hover::before {
@@ -184,34 +195,95 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           height: 300px;
         }
 
+        .category-button:hover::after {
+          opacity: 1;
+        }
+
         .category-button:hover {
-          transform: translateY(-3px) scale(1.08);
-          box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+          transform: translateY(-4px) scale(1.1);
+          box-shadow: 0 12px 30px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.3);
         }
 
         .category-button:active {
-          transform: translateY(-1px) scale(1.02);
+          transform: translateY(-2px) scale(1.05);
         }
 
         .category-button.active {
-          animation: categoryGlow 2s ease-in-out infinite;
+          animation: categoryGlow 2.5s ease-in-out infinite;
+          box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4), 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+
+        @keyframes productCardEntrance {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes productHoverGlow {
+          0%, 100% {
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2), 0 0 15px rgba(6, 182, 212, 0.1);
+          }
+          50% {
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4), 0 0 25px rgba(6, 182, 212, 0.2);
+          }
         }
 
         .product-card {
-          animation: fadeInUp 0.6s ease;
-          transition: all 0.3s ease;
+          animation: productCardEntrance 0.6s ease;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), 0 0 8px rgba(6, 182, 212, 0.1);
         }
 
         .product-card:hover {
-          transform: translateY(-8px);
+          transform: translateY(-12px) scale(1.03);
+          box-shadow: 0 20px 40px rgba(6, 182, 212, 0.25), 0 0 20px rgba(6, 182, 212, 0.15);
         }
 
         .product-image {
-          transition: transform 0.5s ease;
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .product-card:hover .product-image {
-          transform: scale(1.1) rotate(2deg);
+          transform: scale(1.12) rotate(3deg);
+        }
+
+        .buy-button {
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .buy-button::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          transform: translate(-50%, -50%);
+          transition: width 0.5s, height 0.5s;
+        }
+
+        .buy-button:hover::before {
+          width: 300px;
+          height: 300px;
+        }
+
+        .buy-button:hover {
+          transform: scale(1.08);
+          box-shadow: 0 8px 20px rgba(6, 182, 212, 0.5), 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .buy-button:active {
+          transform: scale(0.95);
+          transition: transform 0.1s;
         }
       `}</style>
 
@@ -278,7 +350,7 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
           {filteredProducts.map((product, index) => (
             <Card
               key={product.id}
-              className="product-card overflow-hidden cursor-pointer border-0 shadow-md hover:shadow-2xl bg-white dark:bg-gray-900 rounded-xl"
+              className="product-card overflow-hidden cursor-pointer border-2 border-cyan-100 dark:border-cyan-900/50 rounded-2xl bg-white dark:bg-gray-900"
               onClick={() => setSelectedProduct(product)}
               style={{ animationDelay: `${index * 0.08}s` }}
             >
@@ -298,12 +370,12 @@ export function ProductsSection({ onAddToCart }: ProductsSectionProps) {
                 <p className="text-lg font-bold text-orange-600 dark:text-orange-400">
                   ${(product.priceARS || product.pricesByQuantity[0]?.priceARS || 0).toLocaleString("es-AR")} ARS
                 </p>
-                <Badge variant="secondary" className="text-xs bg-cyan-100 dark:bg-cyan-900/30">
+                <Badge variant="secondary" className="text-xs bg-cyan-100 dark:bg-cyan-900/30 border border-cyan-200 dark:border-cyan-800">
                   {product.category}
                 </Badge>
                 <Button
                   size="sm"
-                  className="w-full mt-2 shimmer-button modern-button"
+                  className="buy-button w-full mt-2 shimmer-button modern-button relative z-10 font-bold text-white border-2 border-cyan-400"
                   onClick={(e) => {
                     e.stopPropagation()
                     setSelectedProduct(product)
