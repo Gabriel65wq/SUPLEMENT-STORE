@@ -1,5 +1,6 @@
 import { MessageCircle, Instagram } from 'lucide-react'
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function Footer() {
   return (
@@ -70,24 +71,24 @@ export function Footer() {
             <h3 className="font-bold text-lg text-cyan-600 dark:text-cyan-400">Información</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link href="/politica-privacidad" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Política de Privacidad
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link href="/terminos-condiciones" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Términos y Condiciones
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link href="/envios-devoluciones" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Envíos y Devoluciones
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                <Link href="/preguntas-frecuentes" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   Preguntas Frecuentes
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
